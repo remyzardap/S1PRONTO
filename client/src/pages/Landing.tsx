@@ -13,145 +13,146 @@ const SLogoSmall = () => (
   </svg>
 );
 
-/* ── Hero logo — HD, crisp, high-contrast ── */
+/*
+ * ── Hero Logo — exact same shape as login page logo, blown up HD ──
+ *
+ * Left:  infinity (∞) shape — thick bold white
+ * Right: circle "lens" with AI details (scan lines, cloud, arrow)
+ * Connected at the center overlap
+ * Light reflections / specular highlights for that crisp HD feel
+ */
 const HeroLogo = () => (
   <svg
-    viewBox="0 0 480 280"
+    viewBox="0 0 200 110"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     style={{
-      width: "min(82vw, 560px)",
+      width: "min(72vw, 420px)",
       height: "auto",
-      filter: "drop-shadow(0 0 60px rgba(99,102,241,0.35)) drop-shadow(0 0 120px rgba(99,102,241,0.15))",
+      filter: "drop-shadow(0 0 40px rgba(255,255,255,0.08)) drop-shadow(0 0 80px rgba(99,102,241,0.12))",
     }}
   >
     <defs>
-      {/* Main frame gradient — bright */}
-      <linearGradient id="fg" x1="0" y1="0" x2="480" y2="280" gradientUnits="userSpaceOnUse">
-        <stop offset="0%" stopColor="#A5B4FC" />
-        <stop offset="30%" stopColor="#E0E7FF" />
-        <stop offset="50%" stopColor="#FFFFFF" />
-        <stop offset="70%" stopColor="#E0E7FF" />
-        <stop offset="100%" stopColor="#A5B4FC" />
+      {/* Main white with subtle warm-cool shift for HD feel */}
+      <linearGradient id="logoWhite" x1="20" y1="10" x2="180" y2="100" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stopColor="#E8ECF4" />
+        <stop offset="25%" stopColor="#FFFFFF" />
+        <stop offset="50%" stopColor="#F0F0F8" />
+        <stop offset="75%" stopColor="#FFFFFF" />
+        <stop offset="100%" stopColor="#E0E4EE" />
       </linearGradient>
-      {/* Detail accent */}
-      <linearGradient id="dg" x1="300" y1="90" x2="400" y2="190" gradientUnits="userSpaceOnUse">
-        <stop offset="0%" stopColor="#C7D2FE" />
-        <stop offset="100%" stopColor="#818CF8" />
+      {/* Specular highlight for light reflection */}
+      <linearGradient id="specular" x1="60" y1="20" x2="90" y2="80" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.25" />
+        <stop offset="50%" stopColor="#FFFFFF" stopOpacity="0.05" />
+        <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0" />
       </linearGradient>
-      {/* Lens fill — very subtle glass tint */}
-      <radialGradient id="lensL" cx="140" cy="140" r="90" gradientUnits="userSpaceOnUse">
-        <stop offset="0%" stopColor="#6366F1" stopOpacity="0.06" />
-        <stop offset="100%" stopColor="#6366F1" stopOpacity="0.01" />
+      {/* Right lens reflection */}
+      <linearGradient id="specR" x1="130" y1="15" x2="160" y2="70" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.18" />
+        <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0" />
+      </linearGradient>
+      {/* Subtle inner glow for lenses */}
+      <radialGradient id="lensGlowL" cx="62" cy="52" r="32" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.03" />
+        <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0" />
       </radialGradient>
-      <radialGradient id="lensR" cx="340" cy="140" r="90" gradientUnits="userSpaceOnUse">
-        <stop offset="0%" stopColor="#818CF8" stopOpacity="0.08" />
-        <stop offset="100%" stopColor="#6366F1" stopOpacity="0.01" />
-      </radialGradient>
-      {/* Glow behind frame */}
-      <radialGradient id="bgGlow" cx="240" cy="140" r="200" gradientUnits="userSpaceOnUse">
-        <stop offset="0%" stopColor="#6366F1" stopOpacity="0.08" />
-        <stop offset="100%" stopColor="#6366F1" stopOpacity="0" />
+      <radialGradient id="lensGlowR" cx="142" cy="52" r="32" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stopColor="#A5B4FC" stopOpacity="0.04" />
+        <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0" />
       </radialGradient>
     </defs>
 
-    {/* Ambient background ellipse */}
-    <ellipse cx="240" cy="140" rx="220" ry="130" fill="url(#bgGlow)" />
-
-    {/* ═══ MAIN INFINITY FRAME ═══ */}
-    {/* Outer glow stroke */}
+    {/* ═══════ LEFT: INFINITY SYMBOL (∞) ═══════ */}
+    {/* The infinity loop — bold, crisp strokes */}
     <path
-      d="M240,140 C234,124 216,68 170,48 C130,30 72,40 40,72 C12,100 8,130 20,155 C34,185 68,210 120,218 C165,224 210,195 240,140 C270,85 315,56 360,48 C400,40 432,60 450,90 C466,116 468,148 455,175 C438,210 400,228 355,224 C305,218 272,165 240,140Z"
-      stroke="rgba(99,102,241,0.2)"
-      strokeWidth="14"
-      strokeLinejoin="round"
-      fill="none"
-    />
-    {/* Main visible stroke — bright white-indigo */}
-    <path
-      d="M240,140 C234,124 216,68 170,48 C130,30 72,40 40,72 C12,100 8,130 20,155 C34,185 68,210 120,218 C165,224 210,195 240,140 C270,85 315,56 360,48 C400,40 432,60 450,90 C466,116 468,148 455,175 C438,210 400,228 355,224 C305,218 272,165 240,140Z"
-      stroke="url(#fg)"
-      strokeWidth="4.5"
+      d="M100,55
+         C96,45 88,22 68,16
+         C50,10 32,18 22,32
+         C12,46 14,64 24,76
+         C36,90 56,90 72,80
+         C84,72 94,62 100,55
+         C106,48 116,38 128,30
+         C144,20 164,20 176,32
+         C188,44 190,64 178,78
+         C168,90 150,90 136,82
+         C122,74 108,62 100,55Z"
+      stroke="url(#logoWhite)"
+      strokeWidth="7"
       strokeLinejoin="round"
       strokeLinecap="round"
       fill="none"
     />
 
-    {/* Left lens glass fill */}
-    <ellipse cx="138" cy="136" rx="82" ry="76" fill="url(#lensL)" />
-    {/* Right lens glass fill */}
-    <ellipse cx="348" cy="136" rx="82" ry="76" fill="url(#lensR)" />
-
-    {/* ═══ LEFT LENS — specular highlight ═══ */}
-    <ellipse cx="108" cy="108" rx="24" ry="18" fill="white" opacity="0.04" transform="rotate(-20 108 108)" />
-    <circle cx="105" cy="105" r="4" fill="white" opacity="0.12" />
-    <circle cx="105" cy="105" r="1.8" fill="white" opacity="0.3" />
-
-    {/* ═══ RIGHT LENS — AI details (crisp, bright) ═══ */}
-
-    {/* Top scan line */}
-    <line x1="308" y1="98" x2="398" y2="98" stroke="url(#dg)" strokeWidth="2.8" strokeLinecap="round" />
-    {/* Tick marks */}
-    <line x1="320" y1="93" x2="320" y2="103" stroke="#A5B4FC" strokeWidth="1.5" strokeLinecap="round" opacity="0.5" />
-    <line x1="338" y1="93" x2="338" y2="103" stroke="#C7D2FE" strokeWidth="1.5" strokeLinecap="round" opacity="0.6" />
-    <line x1="356" y1="93" x2="356" y2="103" stroke="#A5B4FC" strokeWidth="1.5" strokeLinecap="round" opacity="0.5" />
-    <line x1="374" y1="93" x2="374" y2="103" stroke="#C7D2FE" strokeWidth="1.5" strokeLinecap="round" opacity="0.6" />
-    <line x1="392" y1="93" x2="392" y2="103" stroke="#A5B4FC" strokeWidth="1.5" strokeLinecap="round" opacity="0.4" />
-
-    {/* Cloud / brain shape — bold strokes */}
+    {/* Light reflection — top-left of infinity */}
     <path
-      d="M310,140 C310,131 317,125 325,128 C326,122 333,118 340,122 C344,116 353,115 358,120 C364,116 372,118 376,124 C382,121 390,124 392,130 C397,129 402,134 402,140 C403,147 397,152 390,150 C388,156 381,159 374,157 C370,162 362,162 357,158 C352,162 344,161 340,157 C334,161 326,158 322,153 C315,156 308,150 310,140Z"
-      stroke="#C7D2FE"
+      d="M42,24 C50,18 60,18 68,20"
+      stroke="white"
       strokeWidth="2.5"
       strokeLinecap="round"
+      opacity="0.2"
+    />
+    {/* Specular dot — bright highlight */}
+    <circle cx="50" cy="28" r="2.5" fill="white" opacity="0.25" />
+    <circle cx="50" cy="28" r="1" fill="white" opacity="0.5" />
+
+    {/* Left lens inner glow */}
+    <ellipse cx="62" cy="52" rx="30" ry="28" fill="url(#lensGlowL)" />
+
+    {/* ═══════ RIGHT: CIRCLE LENS WITH AI DETAILS ═══════ */}
+
+    {/* Circle outline — connected to the infinity at overlap */}
+    <circle
+      cx="142"
+      cy="55"
+      r="34"
+      stroke="url(#logoWhite)"
+      strokeWidth="6.5"
+      fill="none"
+    />
+
+    {/* Right lens inner glow */}
+    <circle cx="142" cy="55" r="30" fill="url(#lensGlowR)" />
+
+    {/* Light reflection — top of circle */}
+    <path
+      d="M122,28 C130,22 140,20 152,22"
+      stroke="white"
+      strokeWidth="2"
+      strokeLinecap="round"
+      opacity="0.18"
+    />
+    <circle cx="132" cy="30" r="2" fill="white" opacity="0.2" />
+    <circle cx="132" cy="30" r="0.8" fill="white" opacity="0.45" />
+
+    {/* ── AI DETAILS inside the right circle ── */}
+
+    {/* Top horizontal scan line */}
+    <line x1="124" y1="42" x2="160" y2="42" stroke="url(#logoWhite)" strokeWidth="3.5" strokeLinecap="round" />
+
+    {/* Cloud / brain shape */}
+    <path
+      d="M126,56
+         C126,51 130,48 134,50
+         C134.5,47 138,45 141,47.5
+         C143,44.5 147,44 150,46.5
+         C153,44.5 157,46 158,49.5
+         C158,53.5 155,56 151.5,55
+         C150.5,57 147,58 144,56.5
+         C141,58 137,57.5 135,55.5
+         C131,57 126,55 126,56Z"
+      stroke="url(#logoWhite)"
+      strokeWidth="2.8"
+      strokeLinecap="round"
       strokeLinejoin="round"
       fill="none"
     />
-    {/* Neural dots inside brain */}
-    <circle cx="340" cy="137" r="2.5" fill="#A5B4FC" opacity="0.5" />
-    <circle cx="356" cy="133" r="2.8" fill="#C7D2FE" opacity="0.45" />
-    <circle cx="372" cy="137" r="2.5" fill="#A5B4FC" opacity="0.5" />
-    <circle cx="348" cy="145" r="2" fill="#E0E7FF" opacity="0.35" />
-    <circle cx="364" cy="145" r="2" fill="#E0E7FF" opacity="0.35" />
-    {/* Neural connections */}
-    <line x1="340" y1="137" x2="356" y2="133" stroke="#C7D2FE" strokeWidth="0.8" opacity="0.35" />
-    <line x1="356" y1="133" x2="372" y2="137" stroke="#C7D2FE" strokeWidth="0.8" opacity="0.35" />
-    <line x1="340" y1="137" x2="348" y2="145" stroke="#A5B4FC" strokeWidth="0.8" opacity="0.25" />
-    <line x1="372" y1="137" x2="364" y2="145" stroke="#A5B4FC" strokeWidth="0.8" opacity="0.25" />
-    <line x1="348" y1="145" x2="364" y2="145" stroke="#C7D2FE" strokeWidth="0.8" opacity="0.3" />
-    {/* Center node pulse */}
-    <circle cx="356" cy="139" r="1.2" fill="white" opacity="0.5">
-      <animate attributeName="opacity" values="0.3;0.7;0.3" dur="2s" repeatCount="indefinite" />
-    </circle>
 
-    {/* Bottom scan line */}
-    <line x1="305" y1="172" x2="405" y2="172" stroke="url(#dg)" strokeWidth="2.8" strokeLinecap="round" />
-    {/* Tick marks */}
-    <line x1="318" y1="167" x2="318" y2="177" stroke="#A5B4FC" strokeWidth="1.5" strokeLinecap="round" opacity="0.5" />
-    <line x1="336" y1="167" x2="336" y2="177" stroke="#C7D2FE" strokeWidth="1.5" strokeLinecap="round" opacity="0.6" />
-    <line x1="354" y1="167" x2="354" y2="177" stroke="#A5B4FC" strokeWidth="1.5" strokeLinecap="round" opacity="0.5" />
-    <line x1="372" y1="167" x2="372" y2="177" stroke="#C7D2FE" strokeWidth="1.5" strokeLinecap="round" opacity="0.6" />
-    <line x1="390" y1="167" x2="390" y2="177" stroke="#A5B4FC" strokeWidth="1.5" strokeLinecap="round" opacity="0.4" />
+    {/* Bottom horizontal scan line */}
+    <line x1="122" y1="66" x2="162" y2="66" stroke="url(#logoWhite)" strokeWidth="3.5" strokeLinecap="round" />
 
-    {/* Data arrow */}
-    <path d="M349,172 L356,186 L363,172" stroke="#C7D2FE" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-
-    {/* ═══ NOSE BRIDGE ═══ */}
-    <path d="M224,148 Q240,160 256,148" stroke="#818CF8" strokeWidth="1.8" strokeLinecap="round" fill="none" opacity="0.4" />
-
-    {/* ═══ Breathing pulse dots ═══ */}
-    <circle cx="18" cy="140" r="2.5" fill="#818CF8" opacity="0.3">
-      <animate attributeName="opacity" values="0.15;0.5;0.15" dur="3s" repeatCount="indefinite" />
-    </circle>
-    <circle cx="462" cy="140" r="2.5" fill="#818CF8" opacity="0.3">
-      <animate attributeName="opacity" values="0.15;0.5;0.15" dur="3s" begin="1.5s" repeatCount="indefinite" />
-    </circle>
-    <circle cx="240" cy="28" r="2" fill="#A5B4FC" opacity="0.2">
-      <animate attributeName="opacity" values="0.1;0.4;0.1" dur="4s" begin="0.7s" repeatCount="indefinite" />
-    </circle>
-    <circle cx="240" cy="252" r="2" fill="#A5B4FC" opacity="0.2">
-      <animate attributeName="opacity" values="0.1;0.4;0.1" dur="4s" begin="2.2s" repeatCount="indefinite" />
-    </circle>
+    {/* Download arrow below bottom line */}
+    <path d="M138,66 L142,74 L146,66" stroke="url(#logoWhite)" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round" fill="none" />
   </svg>
 );
 
@@ -215,80 +216,99 @@ export default function Landing() {
           position: "relative",
         }}
       >
-        {/* Background glow */}
+        {/* Ambient glow */}
         <div
           style={{
             position: "absolute",
-            width: "70vw",
-            height: "70vw",
-            maxWidth: 700,
-            maxHeight: 700,
+            width: "50vw",
+            height: "50vw",
+            maxWidth: 500,
+            maxHeight: 500,
             borderRadius: "50%",
-            background: "radial-gradient(circle, rgba(99,102,241,0.08) 0%, rgba(99,102,241,0.02) 50%, transparent 70%)",
+            background: "radial-gradient(circle, rgba(99,102,241,0.06) 0%, transparent 70%)",
             pointerEvents: "none",
           }}
         />
 
-        {/* Logo */}
+        {/* Big logo */}
         <div
           style={{
             position: "relative",
             zIndex: 2,
-            marginBottom: 40,
-            animation: "heroIn 1s ease-out both",
+            marginBottom: 36,
+            animation: "heroIn 0.9s ease-out both",
           }}
         >
           <HeroLogo />
         </div>
 
-        {/* Wordmark */}
-        <span
+        {/* SUTAERU wordmark */}
+        <h1
           style={{
             fontFamily: "var(--v2-font-heading)",
-            fontSize: "clamp(12px, 1.6vw, 15px)",
-            fontWeight: 700,
-            letterSpacing: "0.35em",
+            fontSize: "clamp(16px, 2.5vw, 22px)",
+            fontWeight: 800,
+            letterSpacing: "0.25em",
             textTransform: "uppercase",
             color: "#94A3B8",
-            marginBottom: 24,
+            margin: "0 0 14px",
             position: "relative",
             zIndex: 2,
-            animation: "heroIn 1s ease-out 0.2s both",
+            animation: "heroIn 0.9s ease-out 0.15s both",
           }}
         >
           SUTAERU
-        </span>
+        </h1>
 
-        {/* CTA */}
+        {/* Tagline */}
+        <p
+          style={{
+            fontFamily: "var(--v2-font-body)",
+            fontSize: "clamp(14px, 2vw, 18px)",
+            fontWeight: 300,
+            fontStyle: "italic",
+            letterSpacing: "0.01em",
+            color: "#64748B",
+            margin: "0 0 40px",
+            position: "relative",
+            zIndex: 2,
+            animation: "heroIn 0.9s ease-out 0.3s both",
+          }}
+        >
+          One identity. Every model. For life.
+        </p>
+
+        {/* Enter button */}
         <button
           onClick={() => navigate("/login")}
           style={{
-            padding: "13px 36px",
+            padding: "14px 40px",
             borderRadius: 999,
-            border: "1px solid rgba(99,102,241,0.3)",
-            background: "rgba(99,102,241,0.1)",
+            border: "1px solid rgba(255,255,255,0.12)",
+            background: "rgba(255,255,255,0.04)",
             backdropFilter: "blur(12px)",
             WebkitBackdropFilter: "blur(12px)",
             fontFamily: "var(--v2-font-heading)",
             fontSize: 13,
             fontWeight: 600,
-            letterSpacing: "0.08em",
-            color: "#C7D2FE",
+            letterSpacing: "0.1em",
+            textTransform: "uppercase",
+            color: "#CBD5E1",
             cursor: "pointer",
             transition: "all .25s ease",
             position: "relative",
             zIndex: 2,
-            animation: "heroIn 1s ease-out 0.4s both",
+            animation: "heroIn 0.9s ease-out 0.45s both",
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.borderColor = "rgba(99,102,241,0.6)";
-            e.currentTarget.style.background = "rgba(99,102,241,0.18)";
-            e.currentTarget.style.color = "#E0E7FF";
+            e.currentTarget.style.borderColor = "rgba(255,255,255,0.25)";
+            e.currentTarget.style.background = "rgba(255,255,255,0.08)";
+            e.currentTarget.style.color = "#F1F5F9";
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.borderColor = "rgba(99,102,241,0.3)";
-            e.currentTarget.style.background = "rgba(99,102,241,0.1)";
-            e.currentTarget.style.color = "#C7D2FE";
+            e.currentTarget.style.borderColor = "rgba(255,255,255,0.12)";
+            e.currentTarget.style.background = "rgba(255,255,255,0.04)";
+            e.currentTarget.style.color = "#CBD5E1";
           }}
         >
           Enter
@@ -303,7 +323,7 @@ export default function Landing() {
             fontSize: 10,
             color: "var(--v2-text-muted)",
             letterSpacing: "0.04em",
-            opacity: 0.5,
+            opacity: 0.4,
           }}
         >
           &copy; 2025 Sutaeru
@@ -312,8 +332,8 @@ export default function Landing() {
 
       <style>{`
         @keyframes heroIn {
-          from { opacity: 0; transform: translateY(20px) scale(0.97); }
-          to { opacity: 1; transform: translateY(0) scale(1); }
+          from { opacity: 0; transform: translateY(18px); }
+          to { opacity: 1; transform: translateY(0); }
         }
       `}</style>
     </div>
