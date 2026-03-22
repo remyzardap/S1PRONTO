@@ -8,7 +8,7 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 import { BusinessProvider } from "./contexts/BusinessContext";
 import { VideoPlayerProvider } from "./contexts/VideoPlayerContext";
 import BusinessPage from "./pages/Business";
-import Home from "./pages/Home";
+import Landing from "./pages/Landing";
 import Login from "./pages/Login";
 import Generate from "./pages/Generate";
 import Atelier from "./pages/Atelier";
@@ -68,10 +68,23 @@ function AppRoutes() {
 
   return (
     <Switch>
-      <Route path="/" component={Home} />
+      {/* Public routes */}
+      <Route path="/" component={Landing} />
       <Route path="/login" component={Login} />
       <Route path="/reset-password" component={ResetPassword} />
       <Route path="/verify-email" component={VerifyEmail} />
+      <Route path="/u/:handle" component={PublicProfile} />
+
+      {/* Widget Home — shows the widget grid */}
+      <Route path="/dashboard">
+        {isAuthenticated ? (
+          <DashboardLayout>{null}</DashboardLayout>
+        ) : (
+          <ProtectedRoute component={Dashboard} />
+        )}
+      </Route>
+
+      {/* All protected routes — expand from widget grid */}
       <Route path="/board">
         {isAuthenticated ? (
           <DashboardLayout>
@@ -119,7 +132,9 @@ function AppRoutes() {
       </Route>
       <Route path="/feed">
         {isAuthenticated ? (
-          <Feed />
+          <DashboardLayout>
+            <Feed />
+          </DashboardLayout>
         ) : (
           <ProtectedRoute component={Feed} />
         )}
@@ -131,15 +146,6 @@ function AppRoutes() {
           </DashboardLayout>
         ) : (
           <ProtectedRoute component={KemmaCalls} />
-        )}
-      </Route>
-      <Route path="/dashboard">
-        {isAuthenticated ? (
-          <DashboardLayout>
-            <Dashboard />
-          </DashboardLayout>
-        ) : (
-          <ProtectedRoute component={Dashboard} />
         )}
       </Route>
       <Route path="/receipts">
@@ -304,7 +310,6 @@ function AppRoutes() {
           <ProtectedRoute component={Discover} />
         )}
       </Route>
-      <Route path="/u/:handle" component={PublicProfile} />
       <Route path="/components">
         {isAuthenticated ? (
           <DashboardLayout>
@@ -376,4 +381,3 @@ function App() {
 }
 
 export default App;
-
