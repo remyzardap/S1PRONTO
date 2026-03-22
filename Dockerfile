@@ -1,13 +1,16 @@
 # ─── Sutaeru S1PRONTO — Production Dockerfile ───
-# Single-stage build optimized for Coolify deployment
+# Optimized for Coolify deployment
 
 FROM node:20-alpine
 
 WORKDIR /app
 
-# Install dependencies
+# Force development mode during build so all deps install
+ENV NODE_ENV=development
+
+# Install ALL dependencies (including devDependencies for build tools)
 COPY package.json ./
-RUN npm install && npm cache clean --force
+RUN npm install
 
 # Copy full source
 COPY . .
@@ -15,6 +18,7 @@ COPY . .
 # Build: Vite frontend + esbuild server bundle
 RUN npm run build
 
+# Switch to production for runtime
 ENV NODE_ENV=production
 ENV PORT=3000
 
