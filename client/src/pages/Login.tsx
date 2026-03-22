@@ -164,7 +164,7 @@ export default function Login() {
 
   const tabs = [
     { key: 'in', label: 'Sign In' },
-    { key: 'founder', label: 'Founder' },
+    { key: 'founder', label: 'Member' },
   ] as const;
 
   return (
