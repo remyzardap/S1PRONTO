@@ -311,7 +311,7 @@ export default function Chat() {
             sidebarOpen ? "w-64" : "w-0"
           )}
           style={{
-            background: `linear-gradient(180deg, ${MOCHA} 0%, ${MOCHA_DARK} 100%)`,
+            background: "#0C0F1A",
             position: "relative",
             zIndex: 10,
           }}

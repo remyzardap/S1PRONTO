@@ -48,25 +48,25 @@ export function ChatSessionList({ activeSessionId, onSelectSession, onNewSession
   }
 
   return (
-    <div className="flex flex-col h-full" style={{ background: "var(--bg)" }}>
+    <div className="flex flex-col h-full" style={{ background: "#0C0F1A" }}>
       {/* Header */}
-      <div className="p-3 pb-2" style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
+      <div className="p-3 pb-2" style={{ borderBottom: "1px solid rgba(42,51,80,0.6)" }}>
         <button
           onClick={onNewSession}
           className="w-full flex items-center gap-2 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-200"
           style={{
-            background: "rgba(255,255,255,0.05)",
-            border: "1px solid rgba(255,255,255,0.09)",
-            color: "rgba(242,242,242,0.7)",
-            fontFamily: "'DM Sans', sans-serif",
+            background: "#1C2235",
+            border: "1px solid rgba(42,51,80,0.6)",
+            color: "#94A3B8",
+            fontFamily: "'Inter', system-ui, sans-serif",
           }}
           onMouseEnter={(e) => {
-            (e.currentTarget as HTMLButtonElement).style.background = "rgba(255,255,255,0.09)";
-            (e.currentTarget as HTMLButtonElement).style.color = "#f2f2f2";
+            (e.currentTarget as HTMLButtonElement).style.background = "#252D42";
+            (e.currentTarget as HTMLButtonElement).style.color = "#FFFFFF";
           }}
           onMouseLeave={(e) => {
-            (e.currentTarget as HTMLButtonElement).style.background = "rgba(255,255,255,0.05)";
-            (e.currentTarget as HTMLButtonElement).style.color = "rgba(242,242,242,0.7)";
+            (e.currentTarget as HTMLButtonElement).style.background = "#1C2235";
+            (e.currentTarget as HTMLButtonElement).style.color = "#94A3B8";
           }}
         >
           <Plus className="h-4 w-4" />
@@ -78,12 +78,12 @@ export function ChatSessionList({ activeSessionId, onSelectSession, onNewSession
       <div className="flex-1 overflow-y-auto py-2 px-2">
         {isLoading ? (
           <div className="flex justify-center py-10">
-            <Loader2 className="h-4 w-4 animate-spin" style={{ color: "rgba(242,242,242,0.25)" }} />
+            <Loader2 className="h-4 w-4 animate-spin" style={{ color: "#64748B" }} />
           </div>
         ) : sessions.length === 0 ? (
           <div className="px-3 py-10 text-center">
-            <MessageSquare className="h-7 w-7 mx-auto mb-3" style={{ color: "rgba(242,242,242,0.12)" }} />
-            <p className="text-xs" style={{ color: "rgba(242,242,242,0.25)", fontFamily: "'DM Sans', sans-serif" }}>
+            <MessageSquare className="h-7 w-7 mx-auto mb-3" style={{ color: "#2A3350" }} />
+            <p className="text-xs" style={{ color: "#64748B", fontFamily: "'Inter', system-ui, sans-serif" }}>
               No chat history yet
             </p>
           </div>
@@ -97,13 +97,16 @@ export function ChatSessionList({ activeSessionId, onSelectSession, onNewSession
                 transition={{ delay: idx * 0.03 }}
                 className={cn(
                   "group flex items-start gap-2 px-2.5 py-2.5 mb-0.5 rounded-xl cursor-pointer transition-all duration-150",
-                  activeSessionId === session.id ? "bg-white/[0.07]" : ""
+                  activeSessionId === session.id ? "" : ""
                 )}
-                style={activeSessionId === session.id ? { border: "1px solid rgba(255,255,255,0.10)" } : { border: "1px solid transparent" }}
+                style={activeSessionId === session.id
+                  ? { background: "#1C2235", border: "1px solid rgba(42,51,80,0.6)" }
+                  : { border: "1px solid transparent" }
+                }
                 onClick={() => onSelectSession(session.id)}
                 onMouseEnter={(e) => {
                   if (activeSessionId !== session.id) {
-                    (e.currentTarget as HTMLDivElement).style.background = "rgba(255,255,255,0.04)";
+                    (e.currentTarget as HTMLDivElement).style.background = "rgba(28,34,53,0.5)";
                   }
                 }}
                 onMouseLeave={(e) => {
@@ -112,7 +115,7 @@ export function ChatSessionList({ activeSessionId, onSelectSession, onNewSession
                   }
                 }}
               >
-                <MessageSquare className="h-3.5 w-3.5 mt-0.5 shrink-0" style={{ color: "rgba(242,242,242,0.2)" }} />
+                <MessageSquare className="h-3.5 w-3.5 mt-0.5 shrink-0" style={{ color: "#64748B" }} />
 
                 {editingId === session.id ? (
                   <div className="flex-1 flex items-center gap-1" onClick={(e) => e.stopPropagation()}>
@@ -124,22 +127,22 @@ export function ChatSessionList({ activeSessionId, onSelectSession, onNewSession
                         if (e.key === "Escape") cancelEdit();
                       }}
                       className="flex-1 min-w-0 bg-transparent text-xs outline-none border-b"
-                      style={{ color: "#f2f2f2", borderColor: "rgba(255,255,255,0.2)" }}
+                      style={{ color: "#FFFFFF", borderColor: "rgba(42,51,80,0.6)" }}
                       autoFocus
                     />
-                    <button onClick={() => confirmEdit(session.id)} className="p-0.5" style={{ color: "#2dd4bf" }}>
+                    <button onClick={() => confirmEdit(session.id)} className="p-0.5" style={{ color: "#22C55E" }}>
                       <Check className="h-3 w-3" />
                     </button>
-                    <button onClick={cancelEdit} className="p-0.5" style={{ color: "rgba(242,242,242,0.4)" }}>
+                    <button onClick={cancelEdit} className="p-0.5" style={{ color: "#64748B" }}>
                       <X className="h-3 w-3" />
                     </button>
                   </div>
                 ) : (
                   <div className="flex-1 min-w-0">
-                    <p className="text-[13px] truncate leading-snug" style={{ color: activeSessionId === session.id ? "#f2f2f2" : "rgba(242,242,242,0.6)", fontFamily: "'DM Sans', sans-serif" }}>
+                    <p className="text-[13px] truncate leading-snug" style={{ color: activeSessionId === session.id ? "#FFFFFF" : "#94A3B8", fontFamily: "'Inter', system-ui, sans-serif" }}>
                       {session.title || "Untitled"}
                     </p>
-                    <p className="text-[10px] mt-0.5 font-mono" style={{ color: "rgba(242,242,242,0.2)" }}>
+                    <p className="text-[10px] mt-0.5 font-mono" style={{ color: "#64748B" }}>
                       {formatDate(session.lastMessageAt)}
                     </p>
                   </div>
@@ -150,18 +153,18 @@ export function ChatSessionList({ activeSessionId, onSelectSession, onNewSession
                   <div className="hidden group-hover:flex items-center gap-0.5 shrink-0">
                     <button
                       className="p-1 rounded-md transition-colors"
-                      style={{ color: "rgba(242,242,242,0.3)" }}
-                      onMouseEnter={(e) => ((e.currentTarget as HTMLButtonElement).style.color = "#f2f2f2")}
-                      onMouseLeave={(e) => ((e.currentTarget as HTMLButtonElement).style.color = "rgba(242,242,242,0.3)")}
+                      style={{ color: "#64748B" }}
+                      onMouseEnter={(e) => ((e.currentTarget as HTMLButtonElement).style.color = "#FFFFFF")}
+                      onMouseLeave={(e) => ((e.currentTarget as HTMLButtonElement).style.color = "#64748B")}
                       onClick={(e) => { e.stopPropagation(); startEdit(session.id, session.title || ""); }}
                     >
                       <Pencil className="h-3 w-3" />
                     </button>
                     <button
                       className="p-1 rounded-md transition-colors"
-                      style={{ color: "rgba(242,242,242,0.3)" }}
-                      onMouseEnter={(e) => ((e.currentTarget as HTMLButtonElement).style.color = "#ef4444")}
-                      onMouseLeave={(e) => ((e.currentTarget as HTMLButtonElement).style.color = "rgba(242,242,242,0.3)")}
+                      style={{ color: "#64748B" }}
+                      onMouseEnter={(e) => ((e.currentTarget as HTMLButtonElement).style.color = "#EF4444")}
+                      onMouseLeave={(e) => ((e.currentTarget as HTMLButtonElement).style.color = "#64748B")}
                       onClick={(e) => {
                         e.stopPropagation();
                         if (confirm("Delete this chat session?")) {
@@ -181,4 +184,3 @@ export function ChatSessionList({ activeSessionId, onSelectSession, onNewSession
     </div>
   );
 }
-

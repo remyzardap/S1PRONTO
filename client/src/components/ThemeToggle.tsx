@@ -46,7 +46,7 @@ export default function ThemeToggle({
         alignItems: "center",
         justifyContent: "center",
         transition: "all 200ms ease",
-        color: "var(--v2-text-secondary)",
+        color: mode === "dark" ? "#94A3B8" : "#64748B",
         width: 36,
         height: 36,
       }}

@@ -6,55 +6,55 @@
 
 /* ── CSS Custom Properties ── */
 :root {
-  /* Dark Theme (Default) */
-  --v2-bg: #0a0a0f;
-  --v2-surface: #12121a;
-  --v2-surface-2: #1a1a28;
-  --v2-border: rgba(255, 255, 255, 0.06);
-  --v2-border-hover: rgba(255, 255, 255, 0.12);
-  --v2-text: #f0f0f5;
-  --v2-text-secondary: #8888a0;
-  --v2-text-muted: #55556a;
-  --v2-accent: #14b8a6;
-  --v2-accent-darker: #0d9488;
-  --v2-accent-glow: rgba(20, 184, 166, 0.15);
-  --v2-accent-gradient: linear-gradient(135deg, #14b8a6, #0ea5e9);
-  --v2-accent-rgb: 20, 184, 166;
-  --v2-purple: #8b5cf6;
-  --v2-purple-dim: rgba(139, 92, 246, 0.10);
-  --v2-success: #22c55e;
-  --v2-warning: #f59e0b;
-  --v2-error: #ef4444;
-  --v2-glass-bg: rgba(255, 255, 255, 0.04);
-  --v2-glass-bg-hover: rgba(255, 255, 255, 0.07);
-  --v2-glass-border: rgba(255, 255, 255, 0.08);
-  --v2-glass-blur: 20px;
-  --v2-font-heading: 'Syne', sans-serif;
-  --v2-font-body: 'DM Sans', sans-serif;
-  --v2-font-mono: 'JetBrains Mono', 'DM Mono', monospace;
+  /* Dark Theme (Default) — Aura Design System */
+  --v2-bg: #0C0F1A;
+  --v2-surface: #1C2235;
+  --v2-surface-2: #252D42;
+  --v2-border: rgba(42, 51, 80, 0.6);
+  --v2-border-hover: rgba(42, 51, 80, 1);
+  --v2-text: #FFFFFF;
+  --v2-text-secondary: #94A3B8;
+  --v2-text-muted: #64748B;
+  --v2-accent: #6366F1;
+  --v2-accent-darker: #4F46E5;
+  --v2-accent-glow: rgba(99, 102, 241, 0.15);
+  --v2-accent-gradient: linear-gradient(135deg, #6366F1, #3B82F6);
+  --v2-accent-rgb: 99, 102, 241;
+  --v2-purple: #7C3AED;
+  --v2-purple-dim: rgba(124, 58, 237, 0.10);
+  --v2-success: #22C55E;
+  --v2-warning: #F59E0B;
+  --v2-error: #EF4444;
+  --v2-glass-bg: rgba(28, 34, 53, 0.8);
+  --v2-glass-bg-hover: rgba(37, 45, 66, 0.9);
+  --v2-glass-border: rgba(42, 51, 80, 0.6);
+  --v2-glass-blur: 24px;
+  --v2-font-heading: 'Inter', 'SF Pro Display', system-ui, sans-serif;
+  --v2-font-body: 'Inter', 'SF Pro Display', system-ui, sans-serif;
+  --v2-font-mono: 'JetBrains Mono', monospace;
 }
 
-/* ── Light Theme ── */
+/* ── Light Theme — Aura Slate ── */
 [data-theme="light"] {
-  --v2-bg: #f8f9fc;
-  --v2-surface: #ffffff;
-  --v2-surface-2: #f0f1f5;
-  --v2-border: rgba(0, 0, 0, 0.08);
-  --v2-border-hover: rgba(0, 0, 0, 0.14);
-  --v2-text: #0a0a0f;
-  --v2-text-secondary: #64648a;
-  --v2-text-muted: #9999b0;
-  --v2-accent: #0d9488;
-  --v2-accent-darker: #0f766e;
-  --v2-accent-glow: rgba(13, 148, 136, 0.12);
-  --v2-accent-gradient: linear-gradient(135deg, #0d9488, #0284c7);
-  --v2-accent-rgb: 13, 148, 136;
-  --v2-purple: #7c3aed;
+  --v2-bg: #F8FAFC;
+  --v2-surface: #FFFFFF;
+  --v2-surface-2: #F1F5F9;
+  --v2-border: #E2E8F0;
+  --v2-border-hover: #CBD5E1;
+  --v2-text: #0F172A;
+  --v2-text-secondary: #64748B;
+  --v2-text-muted: #94A3B8;
+  --v2-accent: #6366F1;
+  --v2-accent-darker: #4F46E5;
+  --v2-accent-glow: rgba(99, 102, 241, 0.12);
+  --v2-accent-gradient: linear-gradient(135deg, #6366F1, #3B82F6);
+  --v2-accent-rgb: 99, 102, 241;
+  --v2-purple: #7C3AED;
   --v2-purple-dim: rgba(124, 58, 237, 0.08);
-  --v2-glass-bg: rgba(255, 255, 255, 0.70);
-  --v2-glass-bg-hover: rgba(255, 255, 255, 0.85);
-  --v2-glass-border: rgba(0, 0, 0, 0.06);
-  --v2-glass-blur: 20px;
+  --v2-glass-bg: rgba(255, 255, 255, 0.80);
+  --v2-glass-bg-hover: rgba(255, 255, 255, 0.92);
+  --v2-glass-border: #E2E8F0;
+  --v2-glass-blur: 24px;
 }
 
 /* ── Smooth theme transitions ── */
@@ -133,14 +133,14 @@
   justify-content: space-between;
   padding: 0 24px;
   height: 64px;
-  background: rgba(10, 10, 15, 0.80);
+  background: rgba(17, 24, 39, 0.80);
   backdrop-filter: blur(24px) saturate(160%);
   -webkit-backdrop-filter: blur(24px) saturate(160%);
   border-bottom: 1px solid var(--v2-border);
 }
 
 [data-theme="light"] .v2-topbar {
-  background: rgba(248, 249, 252, 0.85);
+  background: rgba(248, 250, 252, 0.88);
 }
 
 /* ── Expand/Collapse Animations ── */
@@ -307,14 +307,14 @@
   justify-content: space-between;
   padding: 0 24px;
   height: 56px;
-  background: rgba(10, 10, 15, 0.85);
+  background: rgba(17, 24, 39, 0.88);
   backdrop-filter: blur(24px) saturate(160%);
   -webkit-backdrop-filter: blur(24px) saturate(160%);
   border-bottom: 1px solid var(--v2-border);
 }
 
 [data-theme="light"] .v2-expanded-topbar {
-  background: rgba(248, 249, 252, 0.88);
+  background: rgba(248, 250, 252, 0.90);
 }
 
 /* ── Landing Page ── */

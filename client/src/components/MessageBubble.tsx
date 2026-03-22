@@ -54,25 +54,25 @@ function CodeBlock({ code, lang }: { code: string; lang?: string }) {
     });
   };
   return (
-    <div className="my-3 rounded-xl overflow-hidden" style={{ border: "1px solid rgba(255,255,255,0.09)" }}>
+    <div className="my-3 rounded-xl overflow-hidden" style={{ border: "1px solid rgba(42,51,80,0.6)" }}>
       <div
         className="flex items-center justify-between px-4 py-2"
-        style={{ background: "rgba(255,255,255,0.04)", borderBottom: "1px solid rgba(255,255,255,0.07)" }}
+        style={{ background: "#0C0F1A", borderBottom: "1px solid rgba(42,51,80,0.6)" }}
       >
-        <span className="text-[10px] tracking-widest uppercase font-mono" style={{ color: "rgba(242,242,242,0.3)" }}>
+        <span className="text-[10px] tracking-widest uppercase font-mono" style={{ color: "#64748B" }}>
           {lang || "code"}
         </span>
         <button
           onClick={copy}
           className="flex items-center gap-1 text-[10px] tracking-widest uppercase font-mono transition-colors"
-          style={{ color: copied ? "#2dd4bf" : "rgba(242,242,242,0.3)" }}
+          style={{ color: copied ? "#22C55E" : "#64748B" }}
         >
           {copied ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
           {copied ? "copied" : "copy"}
         </button>
       </div>
-      <pre className="p-4 overflow-x-auto" style={{ background: "rgba(0,0,0,0.35)" }}>
-        <code className="font-mono text-[13px] leading-relaxed" style={{ color: "rgba(242,242,242,0.82)" }}>
+      <pre className="p-4 overflow-x-auto" style={{ background: "#0C0F1A" }}>
+        <code className="font-mono text-[13px] leading-relaxed" style={{ color: "#94A3B8" }}>
           {code}
         </code>
       </pre>
@@ -82,7 +82,7 @@ function CodeBlock({ code, lang }: { code: string; lang?: string }) {
 
 function getModelMeta(model?: string) {
   if (!model) return null;
-  return { label: "S1", color: "rgba(232,68,42,0.6)" };
+  return { label: "S1", color: "#6366F1" };
 }
 
 export function MessageBubble({ message, onSave }: MessageBubbleProps) {
@@ -102,8 +102,8 @@ export function MessageBubble({ message, onSave }: MessageBubbleProps) {
         className="w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-semibold shrink-0 mb-1"
         style={
           isUser
-            ? { background: "rgba(242,242,242,0.08)", border: "1px solid rgba(242,242,242,0.12)", color: "rgba(242,242,242,0.6)" }
-            : { background: "rgba(232,68,42,0.08)", border: "1px solid rgba(232,68,42,0.18)", color: "#E8442A" }
+            ? { background: "rgba(99,102,241,0.12)", border: "1px solid rgba(99,102,241,0.25)", color: "#818CF8" }
+            : { background: "rgba(99,102,241,0.08)", border: "1px solid rgba(99,102,241,0.18)", color: "#6366F1" }
         }
       >
         {isUser ? "Y" : "S"}
@@ -112,7 +112,7 @@ export function MessageBubble({ message, onSave }: MessageBubbleProps) {
       {/* Bubble */}
       <div className={cn("max-w-[84%] sm:max-w-[72%] flex flex-col gap-1.5", isUser ? "items-end" : "items-start")}>
         <div
-          className={cn("px-4 py-3 text-[14px] leading-relaxed", isUser ? "chat-bubble-user text-[#f0ede8]" : "chat-bubble-ai text-[#f0ede8]")}
+          className={cn("px-4 py-3 text-[14px] leading-relaxed", isUser ? "chat-bubble-user text-white" : "chat-bubble-ai text-white")}
         >
           {message.streaming && !message.content ? (
             <div className="flex gap-1.5 items-center py-1">
@@ -120,7 +120,7 @@ export function MessageBubble({ message, onSave }: MessageBubbleProps) {
                 <motion.span
                   key={i}
                   className="w-1.5 h-1.5 rounded-full"
-                  style={{ background: "rgba(242,242,242,0.4)" }}
+                  style={{ background: "#6366F1" }}
                   animate={{ opacity: [0.3, 1, 0.3], scale: [1, 1.2, 1] }}
                   transition={{ duration: 1.1, repeat: Infinity, delay: i * 0.18 }}
                 />
@@ -136,7 +136,7 @@ export function MessageBubble({ message, onSave }: MessageBubbleProps) {
                 )
               )}
               {message.streaming && (
-                <span className="inline-block w-[2px] h-[1em] ml-0.5 align-middle animate-pulse" style={{ backgroundColor: "rgba(242,242,242,0.5)" }} />
+                <span className="inline-block w-[2px] h-[1em] ml-0.5 align-middle animate-pulse" style={{ backgroundColor: "#6366F1" }} />
               )}
             </>
           )}
@@ -144,7 +144,7 @@ export function MessageBubble({ message, onSave }: MessageBubbleProps) {
 
         {/* Footer row */}
         <div className={cn("flex items-center gap-2 px-1", isUser ? "flex-row-reverse" : "")}>
-          <span className="text-[10px] font-mono" style={{ color: "rgba(242,242,242,0.22)" }}>
+          <span className="text-[10px] font-mono" style={{ color: "#64748B" }}>
             {formatTime(message.createdAt)}
           </span>
 
@@ -164,17 +164,17 @@ export function MessageBubble({ message, onSave }: MessageBubbleProps) {
             onClick={() => onSave(message.content)}
             className="self-start flex items-center gap-1.5 rounded-lg px-2.5 py-1 text-[11px] transition-all opacity-0 group-hover:opacity-100"
             style={{
-              background: "rgba(255,255,255,0.04)",
-              border: "1px solid rgba(255,255,255,0.08)",
-              color: "rgba(242,242,242,0.4)",
+              background: "rgba(28,34,53,0.8)",
+              border: "1px solid rgba(42,51,80,0.6)",
+              color: "#94A3B8",
             }}
             onMouseEnter={(e) => {
-              (e.currentTarget as HTMLButtonElement).style.color = "rgba(242,242,242,0.85)";
-              (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(255,255,255,0.16)";
+              (e.currentTarget as HTMLButtonElement).style.color = "#FFFFFF";
+              (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(99,102,241,0.3)";
             }}
             onMouseLeave={(e) => {
-              (e.currentTarget as HTMLButtonElement).style.color = "rgba(242,242,242,0.4)";
-              (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(255,255,255,0.08)";
+              (e.currentTarget as HTMLButtonElement).style.color = "#94A3B8";
+              (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(42,51,80,0.6)";
             }}
           >
             <BookmarkPlus className="h-3 w-3" />
@@ -185,4 +185,3 @@ export function MessageBubble({ message, onSave }: MessageBubbleProps) {
     </motion.div>
   );
 }
-

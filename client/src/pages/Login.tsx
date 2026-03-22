@@ -146,20 +146,20 @@ export default function Login() {
 
   const inputStyle: React.CSSProperties = {
     width: '100%', padding: '13px 14px 13px 41px',
-    borderRadius: 'var(--r-sm, 12px)',
-    background: 'var(--card, rgba(255,255,255,0.07))',
-    border: '1px solid var(--glass-border, rgba(255,255,255,0.18))',
-    color: 'var(--foreground, #f5f2ed)',
-    fontFamily: 'var(--font-b, "DM Sans", sans-serif)',
+    borderRadius: '12px',
+    background: '#1C2235',
+    border: '1px solid rgba(42,51,80,0.6)',
+    color: '#FFFFFF',
+    fontFamily: "'Inter', system-ui, sans-serif",
     fontSize: '14px', outline: 'none',
     WebkitAppearance: 'none' as any,
     transition: 'border-color .2s, background .2s',
     boxSizing: 'border-box' as const,
   };
   const labelStyle: React.CSSProperties = {
-    fontFamily: 'var(--font-d, "Syne", sans-serif)', fontSize: '9px', fontWeight: 700,
+    fontFamily: "'Inter', system-ui, sans-serif", fontSize: '9px', fontWeight: 700,
     letterSpacing: '.14em', textTransform: 'uppercase' as const,
-    color: 'var(--muted-foreground, rgba(245,242,237,0.40))', padding: '0 3px',
+    color: '#94A3B8', padding: '0 3px',
   };
 
   const tabs = [
@@ -171,15 +171,15 @@ export default function Login() {
     <div style={{
       position: 'fixed', inset: 0,
       display: 'flex', alignItems: 'center', justifyContent: 'center',
-      background: 'var(--background, #0d0a1a)',
-      color: 'var(--foreground, #f5f2ed)',
-      fontFamily: 'var(--font-b, "DM Sans", sans-serif)',
+      background: '#111827',
+      color: '#FFFFFF',
+      fontFamily: "'Inter', system-ui, sans-serif",
       padding: '24px',
     }}>
       {/* Radial glow */}
       <div style={{
         position: 'absolute', inset: 0, pointerEvents: 'none',
-        background: 'radial-gradient(ellipse 60% 60% at 50% 40%, rgba(255,255,255,0.022) 0%, transparent 70%)',
+        background: 'radial-gradient(ellipse 60% 60% at 50% 40%, rgba(99,102,241,0.06) 0%, transparent 70%)',
       }} />
 
       <div style={{
@@ -194,11 +194,11 @@ export default function Login() {
         }}>
           <SLogo />
           <span style={{
-            fontFamily: 'var(--font-d, "Syne", sans-serif)', fontWeight: 800, fontSize: '12px',
+            fontFamily: "'Inter', system-ui, sans-serif", fontWeight: 800, fontSize: '12px',
             letterSpacing: '.2em', textTransform: 'uppercase' as const,
-            color: 'var(--muted-foreground, rgba(245,242,237,0.55))',
+            color: '#94A3B8',
           }}>Sutaeru</span>
-          <span style={{ fontSize: '13px', color: 'var(--muted-foreground, rgba(245,242,237,0.40))', letterSpacing: '.01em' }}>
+          <span style={{ fontSize: '13px', color: '#64748B', letterSpacing: '.01em' }}>
             One identity. Every model. For life.
           </span>
         </div>
@@ -206,18 +206,17 @@ export default function Login() {
         {/* Card */}
         <div style={{
           width: '100%',
-          background: 'var(--glass-bg, rgba(255,255,255,0.10))',
-          backdropFilter: 'blur(32px)', WebkitBackdropFilter: 'blur(32px)',
-          border: '1px solid var(--glass-border, rgba(255,255,255,0.18))',
-          borderRadius: 'var(--r-lg, 24px)',
+          background: '#1C2235',
+          border: '1px solid rgba(42,51,80,0.6)',
+          borderRadius: '20px',
           padding: '5px',
-          boxShadow: '0 0 0 1px rgba(255,255,255,0.015) inset, 0 24px 64px rgba(0,0,0,0.35)',
+          boxShadow: '0 24px 64px rgba(0,0,0,0.3)',
         }}>
           {/* Tab row */}
           <div style={{
             display: 'flex', gap: '3px', padding: '3px',
-            background: 'var(--glass-bg, rgba(255,255,255,0.10))',
-            borderRadius: 'calc(var(--r-lg, 24px) - 5px)',
+            background: 'rgba(12,15,26,0.5)',
+            borderRadius: '15px',
             marginBottom: '6px',
           }}>
             {tabs.map(t => (
@@ -227,13 +226,13 @@ export default function Login() {
                 onClick={() => setTab(t.key)}
                 style={{
                   flex: 1, padding: '11px',
-                  borderRadius: 'calc(var(--r-lg, 24px) - 8px)',
-                  fontFamily: 'var(--font-d, "Syne", sans-serif)', fontSize: '11px', fontWeight: 700,
+                  borderRadius: '12px',
+                  fontFamily: "'Inter', system-ui, sans-serif", fontSize: '11px', fontWeight: 700,
                   letterSpacing: '.08em', textTransform: 'uppercase' as const, textAlign: 'center' as const,
-                  color: tab === t.key ? 'var(--t1, #f2f2f2)' : 'var(--t3, rgba(242,242,242,0.22))',
+                  color: tab === t.key ? '#FFFFFF' : '#64748B',
                   cursor: 'pointer', transition: 'all .22s', border: 'none',
-                  background: tab === t.key ? 'var(--bg-raise2, #141414)' : 'transparent',
-                  boxShadow: tab === t.key ? '0 2px 8px rgba(0,0,0,.25)' : 'none',
+                  background: tab === t.key ? '#252D42' : 'transparent',
+                  boxShadow: tab === t.key ? '0 2px 8px rgba(0,0,0,.2)' : 'none',
                 }}
               >{t.label}</button>
             ))}
@@ -244,8 +243,8 @@ export default function Login() {
             {registerSuccess && (
               <div style={{
                 padding: '10px 14px', borderRadius: '10px',
-                background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.10)',
-                fontSize: '12px', color: 'var(--muted-foreground, rgba(245,242,237,0.55))', textAlign: 'center' as const,
+                background: 'rgba(34,197,94,0.10)', border: '1px solid rgba(34,197,94,0.20)',
+                fontSize: '12px', color: '#22C55E', textAlign: 'center' as const,
               }}>Account created! Sign in below.</div>
             )}
 
@@ -267,7 +266,7 @@ export default function Login() {
                   </div>
                   {loginForm.formState.errors.password && <p style={{ fontSize: '11px', color: '#f87171', margin: 0 }}>{loginForm.formState.errors.password.message}</p>}
                 </div>
-                <div style={{ textAlign: 'right' as const, fontSize: '12px', color: 'var(--t3)', cursor: 'pointer', padding: '0 3px', marginTop: '-4px' }}
+                <div style={{ textAlign: 'right' as const, fontSize: '12px', color: '#818CF8', cursor: 'pointer', padding: '0 3px', marginTop: '-4px' }}
                   onClick={() => navigate('/reset-password')}>Forgot password?</div>
                 {loginError && <p style={{ fontSize: '12px', color: '#f87171', margin: 0, textAlign: 'center' as const }}>{loginError}</p>}
                 <button data-testid="button-signin" type="submit" disabled={loginMutation.isPending} style={{
@@ -346,9 +345,9 @@ export default function Login() {
         {/* Back */}
         <div onClick={() => navigate('/')} style={{
           marginTop: '24px',
-          fontFamily: 'var(--font-d, "Syne", sans-serif)', fontSize: '10px', fontWeight: 700,
+          fontFamily: "'Inter', system-ui, sans-serif", fontSize: '10px', fontWeight: 700,
           letterSpacing: '.12em', textTransform: 'uppercase' as const,
-          color: 'var(--muted-foreground, rgba(245,242,237,0.40))', cursor: 'pointer', transition: 'color .2s',
+          color: '#64748B', cursor: 'pointer', transition: 'color .2s',
         }}>← Back</div>
       </div>
 

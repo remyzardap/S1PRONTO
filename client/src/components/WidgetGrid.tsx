@@ -17,7 +17,7 @@ const allWidgets: WidgetConfig[] = [
     icon: MessageSquare,
     path: "/chat",
     size: "large",
-    color: "teal",
+    color: "indigo",
     description: "Continue your conversation with Kemma",
     noPadding: true,
   },
@@ -92,7 +92,7 @@ const allWidgets: WidgetConfig[] = [
     icon: Brain,
     path: "/identity",
     size: "medium",
-    color: "teal",
+    color: "purple",
     description: "Your AI persona & preferences",
   },
   {
@@ -139,7 +139,7 @@ const allWidgets: WidgetConfig[] = [
     icon: Sparkles,
     path: "/generate",
     size: "medium",
-    color: "teal",
+    color: "indigo",
     description: "AI content generation",
   },
   {
@@ -241,7 +241,7 @@ const allWidgets: WidgetConfig[] = [
     icon: TrendingUp,
     path: "/kpis",
     size: "medium",
-    color: "teal",
+    color: "indigo",
     description: "Key performance indicators",
   },
   // Settings

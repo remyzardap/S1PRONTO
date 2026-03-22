@@ -118,7 +118,7 @@ export default function Landing() {
           alignItems: "center",
           justifyContent: "space-between",
           padding: "16px 24px",
-          background: "rgba(10, 10, 15, 0.70)",
+          background: "rgba(17, 24, 39, 0.80)",
           backdropFilter: "blur(24px) saturate(160%)",
           WebkitBackdropFilter: "blur(24px) saturate(160%)",
           borderBottom: "1px solid var(--v2-border)",

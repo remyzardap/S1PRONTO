@@ -51,9 +51,9 @@ const iconColorMap: Record<string, string> = {
 
 export default function WidgetCard({ widget, onClick }: WidgetCardProps) {
   const Icon = widget.icon;
-  const color = widget.color || "teal";
-  const bgColor = colorMap[color] || colorMap.teal;
-  const icoColor = iconColorMap[color] || iconColorMap.teal;
+  const color = widget.color || "indigo";
+  const bgColor = colorMap[color] || colorMap.indigo;
+  const icoColor = iconColorMap[color] || iconColorMap.indigo;
 
   return (
     <div

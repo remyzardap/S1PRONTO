@@ -26,17 +26,17 @@ function ModeSwitch() {
   return (
     <div style={{
       display: 'flex', alignItems: 'center', gap: '3px',
-      padding: '3px', borderRadius: '100px',
-      border: '1px solid var(--line-1, rgba(255,255,255,0.055))',
-      background: 'var(--glass-bg, rgba(255,255,255,0.10))',
+      padding: '3px', borderRadius: '9999px',
+      border: '1px solid rgba(42,51,80,0.6)',
+      background: 'rgba(28,34,53,0.8)',
       backdropFilter: 'blur(12px)',
     }}>
       {(['dark', 'light'] as const).map(m => (
         <button key={m} onClick={() => toggle(m)} style={{
-          padding: '6px 14px', borderRadius: '100px', border: 'none',
-          background: mode === m ? 'var(--btn-fill, #f2f2f2)' : 'transparent',
-          color: mode === m ? 'var(--btn-ink, #050505)' : 'var(--t3, rgba(242,242,242,0.22))',
-          fontFamily: 'var(--font-d, "Syne", sans-serif)', fontSize: '10px', fontWeight: 700,
+          padding: '6px 14px', borderRadius: '9999px', border: 'none',
+          background: mode === m ? '#6366F1' : 'transparent',
+          color: mode === m ? '#FFFFFF' : '#64748B',
+          fontFamily: "'Inter', system-ui, sans-serif", fontSize: '10px', fontWeight: 700,
           letterSpacing: '0.08em', textTransform: 'uppercase' as const,
           cursor: 'pointer', transition: 'all .25s',
         }}>{m}</button>
@@ -52,19 +52,16 @@ export default function Home() {
     <div style={{
       position: 'fixed', inset: 0, zIndex: 10,
       display: 'flex', flexDirection: 'column',
-      background: 'var(--background, #0d0a1a)',
-      color: 'var(--foreground, #f5f2ed)',
-      fontFamily: 'var(--font-b, "DM Sans", sans-serif)',
+      background: '#0C0F1A',
+      color: '#FFFFFF',
+      fontFamily: "'Inter', system-ui, sans-serif",
       overflow: 'hidden',
       justifyContent: 'space-between',
     }}>
       {/* Radial light bleed */}
       <div style={{
         position: 'absolute', inset: 0, pointerEvents: 'none', zIndex: 0,
-        background: `
-          radial-gradient(ellipse 60% 50% at 20% 10%, rgba(255,255,255,0.028) 0%, transparent 70%),
-          radial-gradient(ellipse 40% 40% at 85% 85%, rgba(255,255,255,0.018) 0%, transparent 70%)
-        `,
+        background: 'radial-gradient(ellipse 60% 50% at 50% 0%, #0C1929 0%, transparent 70%)',
       }} />
 
       {/* Nav */}
@@ -76,24 +73,24 @@ export default function Home() {
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
           <SLogo />
           <span style={{
-            fontFamily: 'var(--font-d, "Syne", sans-serif)',
+            fontFamily: "'Inter', system-ui, sans-serif",
             fontWeight: 800, fontSize: '14px',
             letterSpacing: '0.14em', textTransform: 'uppercase',
-            color: 'var(--foreground, #f5f2ed)',
+            color: '#FFFFFF',
           }}>Sutaeru</span>
         </div>
         <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
           <button onClick={() => navigate('/login')} style={{
-            padding: '9px 18px', borderRadius: '100px',
-            border: '1px solid var(--line-2, rgba(255,255,255,0.10))', background: 'transparent',
-            fontFamily: 'var(--font-d, "Syne", sans-serif)', fontSize: '11px', fontWeight: 700,
+            padding: '9px 18px', borderRadius: '12px',
+            border: '1px solid rgba(42,51,80,0.6)', background: 'transparent',
+            fontFamily: "'Inter', system-ui, sans-serif", fontSize: '11px', fontWeight: 700,
             letterSpacing: '0.07em', textTransform: 'uppercase' as const,
-            color: 'var(--muted-foreground, rgba(245,242,237,0.55))', cursor: 'pointer', transition: 'all .2s',
+            color: '#94A3B8', cursor: 'pointer', transition: 'all .2s',
           }}>Sign in</button>
           <button onClick={() => navigate('/login')} style={{
-            padding: '9px 20px', borderRadius: '100px', border: 'none',
-            background: 'var(--btn-fill, #f2f2f2)', color: 'var(--btn-ink, #050505)',
-            fontFamily: 'var(--font-d, "Syne", sans-serif)', fontSize: '11px', fontWeight: 800,
+            padding: '9px 20px', borderRadius: '12px', border: 'none',
+            background: '#6366F1', color: '#FFFFFF',
+            fontFamily: "'Inter', system-ui, sans-serif", fontSize: '11px', fontWeight: 800,
             letterSpacing: '0.07em', textTransform: 'uppercase' as const,
             cursor: 'pointer', transition: 'all .22s',
           }}>Get started</button>
@@ -110,18 +107,18 @@ export default function Home() {
         {/* Eyebrow */}
         <div style={{
           display: 'inline-flex', alignItems: 'center', gap: '8px',
-          padding: '5px 14px', borderRadius: '100px',
-          border: '1px solid var(--line-1, rgba(255,255,255,0.055))',
-          background: 'var(--glass-bg, rgba(255,255,255,0.10))',
+          padding: '5px 14px', borderRadius: '9999px',
+          border: '1px solid rgba(99,102,241,0.20)',
+          background: 'rgba(99,102,241,0.08)',
           backdropFilter: 'blur(12px)',
-          fontFamily: 'var(--font-d, "Syne", sans-serif)', fontSize: '10px', fontWeight: 700,
+          fontFamily: "'Inter', system-ui, sans-serif", fontSize: '10px', fontWeight: 700,
           letterSpacing: '0.12em', textTransform: 'uppercase' as const,
-          color: 'var(--muted-foreground, rgba(245,242,237,0.40))',
+          color: '#818CF8',
           marginBottom: '24px',
         }}>
           <div style={{
             width: '4px', height: '4px', borderRadius: '50%',
-            background: 'var(--t1, #f2f2f2)',
+            background: '#6366F1',
             animation: 'breathe 2.2s ease infinite',
           }} />
           Now live
@@ -129,19 +126,19 @@ export default function Home() {
 
         {/* H1 */}
         <h1 style={{
-          fontFamily: 'var(--font-d, "Syne", sans-serif)', fontWeight: 800,
+          fontFamily: "'Inter', system-ui, sans-serif", fontWeight: 800,
           fontSize: 'clamp(38px, 10vw, 52px)',
           lineHeight: 1.1, letterSpacing: '-0.03em',
-          color: 'var(--foreground, #f5f2ed)', marginBottom: '14px', margin: '0 0 14px 0',
+          color: '#FFFFFF', marginBottom: '14px', margin: '0 0 14px 0',
         }}>
           One memory.<br />
-          <span style={{ color: 'var(--muted-foreground, rgba(245,242,237,0.40))', fontWeight: 400 }}>Every model.</span>
+          <span style={{ color: '#94A3B8', fontWeight: 400 }}>Every model.</span>
         </h1>
 
         {/* Body */}
         <p style={{
           fontSize: '14px', lineHeight: 1.7,
-          color: 'var(--muted-foreground, rgba(245,242,237,0.40))',
+          color: '#94A3B8',
           maxWidth: '260px', marginBottom: '36px', margin: '0 0 36px 0',
         }}>
           Your AI identity layer. One persistent memory that follows you across every model, every conversation, every platform.
@@ -152,18 +149,18 @@ export default function Home() {
           display: 'flex', gap: '10px', flexWrap: 'wrap' as const,
         }}>
           <button onClick={() => navigate('/login')} style={{
-            padding: '13px 24px', borderRadius: '100px', border: 'none',
-            background: 'var(--btn-fill, #f2f2f2)', color: 'var(--btn-ink, #050505)',
-            fontFamily: 'var(--font-d, "Syne", sans-serif)', fontSize: '12px', fontWeight: 800,
+            padding: '13px 24px', borderRadius: '12px', border: 'none',
+            background: '#6366F1', color: '#FFFFFF',
+            fontFamily: "'Inter', system-ui, sans-serif", fontSize: '12px', fontWeight: 800,
             letterSpacing: '0.07em', textTransform: 'uppercase' as const,
             cursor: 'pointer', transition: 'all .22s',
           }}>Get started →</button>
           <button onClick={() => navigate('/login')} style={{
-            padding: '13px 24px', borderRadius: '100px',
-            border: '1px solid var(--line-1, rgba(255,255,255,0.055))', background: 'transparent',
-            fontFamily: 'var(--font-d, "Syne", sans-serif)', fontSize: '12px', fontWeight: 700,
+            padding: '13px 24px', borderRadius: '12px',
+            border: '1px solid rgba(42,51,80,0.6)', background: 'transparent',
+            fontFamily: "'Inter', system-ui, sans-serif", fontSize: '12px', fontWeight: 700,
             letterSpacing: '0.07em', textTransform: 'uppercase' as const,
-            color: 'var(--muted-foreground, rgba(245,242,237,0.40))', cursor: 'pointer', transition: 'all .22s',
+            color: '#94A3B8', cursor: 'pointer', transition: 'all .22s',
           }}>Sign in</button>
         </div>
       </div>
@@ -175,9 +172,9 @@ export default function Home() {
         padding: '16px 24px 24px',
       }}>
         <span style={{
-          fontFamily: 'var(--font-d, "Syne", sans-serif)', fontSize: '10px', fontWeight: 700,
+          fontFamily: "'Inter', system-ui, sans-serif", fontSize: '10px', fontWeight: 700,
           letterSpacing: '0.12em', textTransform: 'uppercase' as const,
-          color: 'var(--muted-foreground, rgba(245,242,237,0.40))',
+          color: '#64748B',
         }}>© 2025 Sutaeru</span>
         <ModeSwitch />
       </div>
