@@ -11,7 +11,7 @@ import { SaveMemoryDialog } from "@/components/SaveMemoryDialog";
 import { trpc } from "@/lib/trpc";
 import { cn } from "@/lib/utils";
 import {
-  F, FD, PAGE_BG, NOISE_OVERLAY, CSS_ANIM,
+  F, FD, PAGE_BG, NOISE_OVERLAY,
   innerGlowStrong, MOCHA, MOCHA_DARK,
 } from "@/lib/design";
 
@@ -300,7 +300,6 @@ export default function Chat() {
   // ─── Render ────────────────────────────────────────────────────────────────
   return (
     <div style={{ ...PAGE_BG, display: "flex", minHeight: "100vh" }}>
-      <style>{CSS_ANIM}</style>
       <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet" />
       <div style={NOISE_OVERLAY} />
       
