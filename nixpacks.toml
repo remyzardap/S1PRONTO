@@ -1,0 +1,12 @@
+# Nixpacks configuration for Coolify auto-deploy
+[phases.setup]
+nixPkgs = ["nodejs_20", "npm"]
+
+[phases.install]
+cmds = ["npm install"]
+
+[phases.build]
+cmds = ["npm run build"]
+
+[start]
+cmd = "node --import tsx/esm server/migrate.ts && node dist/index.js"
