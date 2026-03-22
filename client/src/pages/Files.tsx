@@ -125,7 +125,7 @@ export default function Files() {
             {files.length} file{files.length !== 1 ? "s" : ""} generated
           </p>
         </div>
-        <Button onClick={() => navigate("/generate")}>
+        <Button onClick={() => navigate("/image-gen")}>
           <Plus className="mr-2 h-4 w-4" />
           New File
         </Button>
@@ -165,9 +165,9 @@ export default function Files() {
             </p>
           </div>
           {!search && (
-            <Button onClick={() => navigate("/generate")}>
+            <Button onClick={() => navigate("/image-gen")}>
               <Plus className="mr-2 h-4 w-4" />
-              Generate a File
+              Create a File
             </Button>
           )}
         </div>

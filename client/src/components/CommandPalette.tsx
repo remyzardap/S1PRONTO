@@ -13,9 +13,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useLocation } from "wouter";
 import { trpc } from "@/lib/trpc";
 import {
-  Search, LayoutDashboard, MessageSquare, Brain, Zap, FolderOpen,
-  Layers, Rss, LayoutGrid, Receipt, CheckSquare, ShoppingCart, BarChart3,
-  TrendingUp, Image, Phone, Plug, Sparkles, Plus, ArrowRight,
+  Search, LayoutDashboard, MessageSquare, Zap, FolderOpen,
+  Layers, Rss, LayoutGrid, CheckSquare,
+  Image, Phone, Sparkles, Plus, ArrowRight,
   FileText, BookOpen, Mic, StickyNote, X,
 } from "lucide-react";
 import { F, FM, MOCHA, AMBER, TEXT_PRIMARY, TEXT_MUTED, TEXT_SOFT } from "@/lib/design";
@@ -24,27 +24,21 @@ import type { BlockData } from "@/components/Block";
 // ─── Navigation Items ─────────────────────────────────────────────────────────
 
 const PAGES = [
-  { label: "Dashboard", path: "/", icon: LayoutDashboard, category: "Pages" },
+  { label: "Dashboard", path: "/dashboard-page", icon: LayoutDashboard, category: "Pages" },
   { label: "Chat", path: "/chat", icon: MessageSquare, category: "Pages" },
-  { label: "Memories", path: "/memories", icon: Brain, category: "Pages" },
   { label: "Skills", path: "/skills", icon: Zap, category: "Pages" },
   { label: "Files", path: "/files", icon: FolderOpen, category: "Pages" },
-  { label: "Board", path: "/board", icon: LayoutGrid, category: "Pages" },
   { label: "Atelier", path: "/atelier", icon: Layers, category: "Pages" },
   { label: "Feed", path: "/feed", icon: Rss, category: "Pages" },
   { label: "Workflows", path: "/workflow", icon: Zap, category: "Pages" },
-  { label: "Connections", path: "/connections", icon: Plug, category: "Pages" },
-  { label: "Receipts", path: "/receipts", icon: Receipt, category: "Pages" },
-  { label: "Reports", path: "/reports", icon: BarChart3, category: "Pages" },
   { label: "Tasks", path: "/tasks", icon: CheckSquare, category: "Pages" },
-  { label: "Procurement", path: "/procurement", icon: ShoppingCart, category: "Pages" },
-  { label: "KPIs", path: "/kpis", icon: TrendingUp, category: "Pages" },
   { label: "Image Gen", path: "/image-gen", icon: Image, category: "Pages" },
   { label: "Kemma Calls", path: "/kemma-calls", icon: Phone, category: "Pages" },
+  { label: "Businesses", path: "/business", icon: LayoutGrid, category: "Pages" },
+  { label: "Settings", path: "/settings", icon: Sparkles, category: "Pages" },
 ];
 
 const QUICK_ACTIONS = [
-  { label: "New Memory", icon: Plus, action: (nav: (p: string) => void) => nav("/memories?new=1"), category: "Actions" },
   { label: "New Skill", icon: Plus, action: (nav: (p: string) => void) => nav("/skills?new=1"), category: "Actions" },
   { label: "New Chat Session", icon: Plus, action: (nav: (p: string) => void) => nav("/chat?new=1"), category: "Actions" },
   { label: "Upload File", icon: Plus, action: (nav: (p: string) => void) => nav("/files?upload=1"), category: "Actions" },

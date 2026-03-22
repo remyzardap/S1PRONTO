@@ -10,36 +10,21 @@ import { VideoPlayerProvider } from "./contexts/VideoPlayerContext";
 import BusinessPage from "./pages/Business";
 import Landing from "./pages/Landing";
 import Login from "./pages/Login";
-import Generate from "./pages/Generate";
 import Atelier from "./pages/Atelier";
-import Board from "./pages/Board";
 import Files from "./pages/Files";
 import Settings from "./pages/Settings";
 import Dashboard from "./pages/Dashboard";
-import Receipts from "./pages/Receipts";
-import ReviewQueue from "./pages/ReviewQueue";
 import Tasks from "./pages/Tasks";
-import Procurement from "./pages/Procurement";
-import Reports from "./pages/Reports";
-import WhatsAppSimulator from "./pages/WhatsAppSimulator";
-import Billing from "./pages/Billing";
-import Pricing from "./pages/Pricing";
 import Admin from "./pages/Admin";
 import AuditLogs from "./pages/AuditLogs";
 import Chat from "./pages/Chat";
 import Onboarding from "./pages/Onboarding";
-import Discover from "./pages/Discover";
-import Identity from "./pages/Identity";
 import Skills from "./pages/Skills";
-import Memories from "./pages/Memories";
-import Connections from "./pages/Connections";
 import ResetPassword from "./pages/ResetPassword";
 import VerifyEmail from "./pages/VerifyEmail";
 import PublicProfile from "./pages/PublicProfile";
 import ComponentShowcase from "./pages/ComponentShowcase";
 import ImageGen from "./pages/ImageGen";
-import KpisDashboard from "./pages/KpisDashboard";
-import HealthDashboard from "./pages/HealthDashboard";
 import KemmaCalls from "./pages/KemmaCalls";
 import Feed from "./pages/Feed";
 import DashboardLayout from "./components/DashboardLayout";
@@ -84,16 +69,18 @@ function AppRoutes() {
         )}
       </Route>
 
-      {/* All protected routes — expand from widget grid */}
-      <Route path="/board">
+      {/* Dashboard analytics page — separate from widget grid */}
+      <Route path="/dashboard-page">
         {isAuthenticated ? (
           <DashboardLayout>
-            <Board />
+            <Dashboard />
           </DashboardLayout>
         ) : (
-          <ProtectedRoute component={Board} />
+          <ProtectedRoute component={Dashboard} />
         )}
       </Route>
+
+      {/* All protected routes — expand from widget grid */}
       <Route path="/atelier">
         {isAuthenticated ? (
           <DashboardLayout noPadding>
@@ -101,15 +88,6 @@ function AppRoutes() {
           </DashboardLayout>
         ) : (
           <ProtectedRoute component={Atelier} />
-        )}
-      </Route>
-      <Route path="/generate">
-        {isAuthenticated ? (
-          <DashboardLayout>
-            <Generate />
-          </DashboardLayout>
-        ) : (
-          <ProtectedRoute component={Generate} />
         )}
       </Route>
       <Route path="/files">
@@ -132,9 +110,7 @@ function AppRoutes() {
       </Route>
       <Route path="/feed">
         {isAuthenticated ? (
-          <DashboardLayout>
-            <Feed />
-          </DashboardLayout>
+          <Feed />
         ) : (
           <ProtectedRoute component={Feed} />
         )}
@@ -148,24 +124,6 @@ function AppRoutes() {
           <ProtectedRoute component={KemmaCalls} />
         )}
       </Route>
-      <Route path="/receipts">
-        {isAuthenticated ? (
-          <DashboardLayout>
-            <Receipts />
-          </DashboardLayout>
-        ) : (
-          <ProtectedRoute component={Receipts} />
-        )}
-      </Route>
-      <Route path="/review">
-        {isAuthenticated ? (
-          <DashboardLayout>
-            <ReviewQueue />
-          </DashboardLayout>
-        ) : (
-          <ProtectedRoute component={ReviewQueue} />
-        )}
-      </Route>
       <Route path="/tasks">
         {isAuthenticated ? (
           <DashboardLayout>
@@ -173,51 +131,6 @@ function AppRoutes() {
           </DashboardLayout>
         ) : (
           <ProtectedRoute component={Tasks} />
-        )}
-      </Route>
-      <Route path="/procurement">
-        {isAuthenticated ? (
-          <DashboardLayout>
-            <Procurement />
-          </DashboardLayout>
-        ) : (
-          <ProtectedRoute component={Procurement} />
-        )}
-      </Route>
-      <Route path="/reports">
-        {isAuthenticated ? (
-          <DashboardLayout>
-            <Reports />
-          </DashboardLayout>
-        ) : (
-          <ProtectedRoute component={Reports} />
-        )}
-      </Route>
-      <Route path="/whatsapp">
-        {isAuthenticated ? (
-          <DashboardLayout>
-            <WhatsAppSimulator />
-          </DashboardLayout>
-        ) : (
-          <ProtectedRoute component={WhatsAppSimulator} />
-        )}
-      </Route>
-      <Route path="/billing">
-        {isAuthenticated ? (
-          <DashboardLayout>
-            <Billing />
-          </DashboardLayout>
-        ) : (
-          <ProtectedRoute component={Billing} />
-        )}
-      </Route>
-      <Route path="/pricing">
-        {isAuthenticated ? (
-          <DashboardLayout>
-            <Pricing />
-          </DashboardLayout>
-        ) : (
-          <ProtectedRoute component={Pricing} />
         )}
       </Route>
       <Route path="/admin/audit-logs">
@@ -247,15 +160,6 @@ function AppRoutes() {
           <ProtectedRoute component={Chat} />
         )}
       </Route>
-      <Route path="/identity">
-        {isAuthenticated ? (
-          <DashboardLayout>
-            <Identity />
-          </DashboardLayout>
-        ) : (
-          <ProtectedRoute component={Identity} />
-        )}
-      </Route>
       <Route path="/skills">
         {isAuthenticated ? (
           <DashboardLayout>
@@ -263,24 +167,6 @@ function AppRoutes() {
           </DashboardLayout>
         ) : (
           <ProtectedRoute component={Skills} />
-        )}
-      </Route>
-      <Route path="/memories">
-        {isAuthenticated ? (
-          <DashboardLayout>
-            <Memories />
-          </DashboardLayout>
-        ) : (
-          <ProtectedRoute component={Memories} />
-        )}
-      </Route>
-      <Route path="/connections">
-        {isAuthenticated ? (
-          <DashboardLayout>
-            <Connections />
-          </DashboardLayout>
-        ) : (
-          <ProtectedRoute component={Connections} />
         )}
       </Route>
       <Route path="/onboarding">
@@ -301,15 +187,6 @@ function AppRoutes() {
           <ProtectedRoute component={BusinessPage} />
         )}
       </Route>
-      <Route path="/discover">
-        {isAuthenticated ? (
-          <DashboardLayout>
-            <Discover />
-          </DashboardLayout>
-        ) : (
-          <ProtectedRoute component={Discover} />
-        )}
-      </Route>
       <Route path="/components">
         {isAuthenticated ? (
           <DashboardLayout>
@@ -321,29 +198,9 @@ function AppRoutes() {
       </Route>
       <Route path="/image-gen">
         {isAuthenticated ? (
-          <DashboardLayout>
-            <ImageGen />
-          </DashboardLayout>
+          <ImageGen />
         ) : (
           <ProtectedRoute component={ImageGen} />
-        )}
-      </Route>
-      <Route path="/kpis">
-        {isAuthenticated ? (
-          <DashboardLayout>
-            <KpisDashboard />
-          </DashboardLayout>
-        ) : (
-          <ProtectedRoute component={KpisDashboard} />
-        )}
-      </Route>
-      <Route path="/health">
-        {isAuthenticated ? (
-          <DashboardLayout>
-            <HealthDashboard />
-          </DashboardLayout>
-        ) : (
-          <ProtectedRoute component={HealthDashboard} />
         )}
       </Route>
       <Route path="/workflow">
