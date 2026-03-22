@@ -24,7 +24,7 @@ const sizeClasses: Record<string, string> = {
 };
 
 const colorMap: Record<string, string> = {
-  teal: "rgba(20, 184, 166, 0.10)",
+  teal: "rgba(99, 102, 241, 0.10)",
   purple: "rgba(139, 92, 246, 0.10)",
   blue: "rgba(14, 165, 233, 0.10)",
   orange: "rgba(245, 158, 11, 0.10)",
@@ -37,7 +37,7 @@ const colorMap: Record<string, string> = {
 };
 
 const iconColorMap: Record<string, string> = {
-  teal: "#14b8a6",
+  teal: "#6366f1",
   purple: "#8b5cf6",
   blue: "#0ea5e9",
   orange: "#f59e0b",

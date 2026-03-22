@@ -269,17 +269,17 @@ export function ResearchWidget() {
 }
 
 // ==============================
-// TERMINAL — Dark card with teal glow
+// TERMINAL — Dark card with indigo glow
 // ==============================
 export function TerminalWidget() {
   return (
     <div className="relative z-10 p-5 h-full flex flex-col" style={{ minHeight: 80 }}>
       <div className="flex items-center gap-3">
-        <div className="os-icon-ring os-icon-ring--teal">
+        <div className="os-icon-ring os-icon-ring--accent">
           <Terminal className="h-4 w-4" />
         </div>
         <div>
-          <p className="text-sm font-semibold" style={{ color: 'var(--os-teal)' }}>Terminal</p>
+          <p className="text-sm font-semibold" style={{ color: 'var(--os-accent)' }}>Terminal</p>
           <p className="os-caption">System shell access</p>
         </div>
         <div className="ml-auto flex items-center gap-1.5">
@@ -288,8 +288,8 @@ export function TerminalWidget() {
           <div className="w-3 h-3 rounded-full" style={{ background: '#22C55E' }} />
         </div>
       </div>
-      <div className="mt-3 rounded-lg p-3" style={{ background: 'rgba(20, 184, 166, 0.05)', border: '1px solid rgba(20, 184, 166, 0.10)' }}>
-        <p className="font-mono text-xs" style={{ color: 'var(--os-teal)' }}>
+      <div className="mt-3 rounded-lg p-3" style={{ background: 'rgba(99, 102, 241, 0.05)', border: '1px solid rgba(99, 102, 241, 0.10)' }}>
+        <p className="font-mono text-xs" style={{ color: 'var(--os-accent)' }}>
           <span style={{ color: 'var(--os-text-muted)' }}>$</span> Ready...
         </p>
       </div>

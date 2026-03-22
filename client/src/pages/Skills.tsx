@@ -229,7 +229,7 @@ function EmptyState({ onAdd }: { onAdd: () => void }) {
         Skills are reusable prompts, workflows, tools, and behaviors that define your AI
         agent&apos;s capabilities.
       </p>
-      <button onClick={onAdd} className="btn-primary-teal px-5 py-2.5 text-sm inline-flex items-center gap-2">
+      <button onClick={onAdd} className="btn-primary-accent px-5 py-2.5 text-sm inline-flex items-center gap-2">
         <Plus className="w-4 h-4" />
         Add Skill
       </button>
@@ -302,7 +302,7 @@ export default function Skills() {
           </h1>
           <button
             onClick={() => setIsModalOpen(true)}
-            className="btn-primary-teal px-4 py-2 text-sm inline-flex items-center gap-2"
+            className="btn-primary-accent px-4 py-2 text-sm inline-flex items-center gap-2"
           >
             <Plus className="w-4 h-4" />
             <span className="hidden sm:inline">Add Skill</span>
@@ -484,7 +484,7 @@ export default function Skills() {
               <button
                 type="submit"
                 disabled={createMutation.isPending}
-                className="btn-primary-teal px-5 py-2.5 text-sm disabled:opacity-50"
+                className="btn-primary-accent px-5 py-2.5 text-sm disabled:opacity-50"
               >
                 {createMutation.isPending ? "Creating..." : "Create Skill"}
               </button>

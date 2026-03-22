@@ -1,6 +1,6 @@
 /* ============================================
  * Sutaeru OS v2 — Design Tokens
- * Dark: Debtrix navy + AKIRA blue-glow + MagicDraft teal
+ * Dark: Debtrix navy + AKIRA blue-glow + indigo accent
  * Light: Sage green productivity widgets
  * FILE: client/src/styles/sutaeru-os.css
  * ============================================ */
@@ -40,10 +40,10 @@
     --os-blue-glow:    0 0 24px rgba(78, 130, 238, 0.20);
     --os-blue-solid:   #3B82F6;
 
-    /* Accent: Teal — MagicDraft sidebar & success */
-    --os-teal:         #14B8A6;
-    --os-teal-dim:     rgba(20, 184, 166, 0.10);
-    --os-teal-glow:    0 0 20px rgba(20, 184, 166, 0.15);
+    /* Accent: Indigo — sidebar & success */
+    --os-accent:       #6366F1;
+    --os-accent-dim:   rgba(99, 102, 241, 0.10);
+    --os-accent-glow:  0 0 20px rgba(99, 102, 241, 0.15);
 
     /* Accent: Indigo — charts & memory */
     --os-indigo:       #8B5CF6;
@@ -68,7 +68,7 @@
     /* Stat card colored backgrounds (Debtrix-style) */
     --os-stat-amber:   linear-gradient(145deg, #2e2310 0%, #1c1a14 100%);
     --os-stat-blue:    linear-gradient(145deg, #141c2e 0%, #12141c 100%);
-    --os-stat-teal:    linear-gradient(145deg, #0e2420 0%, #10161c 100%);
+    --os-stat-accent:  linear-gradient(145deg, #0e2420 0%, #10161c 100%);
     --os-stat-indigo:  linear-gradient(145deg, #1a142e 0%, #14121c 100%);
     --os-stat-pink:    linear-gradient(145deg, #2a1224 0%, #1c1018 100%);
 
@@ -111,8 +111,8 @@
 
     /* Sidebar — MagicDraft style */
     --os-sidebar-bg:     #0f0f13;
-    --os-sidebar-active:  rgba(20, 184, 166, 0.10);
-    --os-sidebar-accent:  var(--os-teal);
+    --os-sidebar-active:  rgba(99, 102, 241, 0.10);
+    --os-sidebar-accent:  var(--os-accent);
     --os-sidebar-width:   260px;
 
     /* Card radius (Debtrix uses ~16-20px, AKIRA uses ~12-16px) */
@@ -166,13 +166,13 @@
     --os-blue-glow:    0 0 16px rgba(76, 140, 74, 0.12);
     --os-blue-solid:   #4C8C4A;
 
-    --os-teal:         #3D8B6E;
-    --os-teal-dim:     rgba(61, 139, 110, 0.08);
+    --os-accent:       #6366F1;
+    --os-accent-dim:   rgba(99, 102, 241, 0.08);
 
     /* Stat card backgrounds — soft sage tints */
     --os-stat-amber:   linear-gradient(145deg, #e8ecd8 0%, #f5f6ef 100%);
     --os-stat-blue:    linear-gradient(145deg, #dde8d8 0%, #f0f4ea 100%);
-    --os-stat-teal:    linear-gradient(145deg, #d4e8e0 0%, #eef4ef 100%);
+    --os-stat-accent:  linear-gradient(145deg, #d4e8e0 0%, #eef4ef 100%);
     --os-stat-indigo:  linear-gradient(145deg, #e2dce8 0%, #f2f0f6 100%);
     --os-stat-pink:    linear-gradient(145deg, #e8d8de 0%, #f6f0f2 100%);
 
@@ -272,7 +272,7 @@
 }
 .os-stat-card--amber  { background: var(--os-stat-amber); }
 .os-stat-card--blue   { background: var(--os-stat-blue); }
-.os-stat-card--teal   { background: var(--os-stat-teal); }
+.os-stat-card--accent { background: var(--os-stat-accent); }
 .os-stat-card--indigo { background: var(--os-stat-indigo); }
 .os-stat-card--pink   { background: var(--os-stat-pink); }
 
@@ -287,7 +287,7 @@
 }
 .os-icon-ring--amber  { background: var(--os-amber-dim); color: var(--os-amber); }
 .os-icon-ring--blue   { background: var(--os-blue-dim); color: var(--os-blue); }
-.os-icon-ring--teal   { background: var(--os-teal-dim); color: var(--os-teal); }
+.os-icon-ring--accent { background: var(--os-accent-dim); color: var(--os-accent); }
 .os-icon-ring--indigo { background: var(--os-indigo-dim); color: var(--os-indigo); }
 .os-icon-ring--green  { background: var(--os-green-dim); color: var(--os-green); }
 .os-icon-ring--pink   { background: var(--os-pink-dim); color: var(--os-pink); }

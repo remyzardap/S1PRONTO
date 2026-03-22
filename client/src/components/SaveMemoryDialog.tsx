@@ -114,7 +114,7 @@ export function SaveMemoryDialog({
           >
             Cancel
           </Button>
-          <Button onClick={onSave} disabled={isPending} className="btn-primary-teal">
+          <Button onClick={onSave} disabled={isPending} className="btn-primary-accent">
             {isPending ? (
               <Loader2 className="mr-2 h-4 w-4 animate-spin" />
             ) : (

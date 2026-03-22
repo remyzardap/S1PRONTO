@@ -615,7 +615,7 @@ export default function Identity() {
           <button
             onClick={handleSave}
             disabled={upsertMutation.isPending}
-            className="btn-primary-teal px-6 py-2.5 text-sm inline-flex items-center gap-2 disabled:opacity-50"
+            className="btn-primary-accent px-6 py-2.5 text-sm inline-flex items-center gap-2 disabled:opacity-50"
           >
             {upsertMutation.isPending ? (
               <>

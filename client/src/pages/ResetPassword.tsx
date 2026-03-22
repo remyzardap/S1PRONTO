@@ -75,7 +75,7 @@ export default function ResetPassword() {
           <div className="text-center">
             <p className="text-green-400 mb-6">Your password has been reset successfully.</p>
             <Link href="/login">
-              <a className="w-full btn-primary-teal font-medium text-sm py-3 rounded-xl hover:bg-[#e5e5e5] active:bg-[#cccccc] transition-colors flex items-center justify-center gap-2">
+              <a className="w-full btn-primary-accent font-medium text-sm py-3 rounded-xl hover:bg-[#e5e5e5] active:bg-[#cccccc] transition-colors flex items-center justify-center gap-2">
                 Back to Sign In
                 <ArrowRight className="w-4 h-4" />
               </a>
@@ -126,7 +126,7 @@ export default function ResetPassword() {
             <button
               type="submit"
               disabled={resetPasswordMutation.isPending}
-              className="w-full btn-primary-teal font-medium text-sm py-3 rounded-xl hover:bg-[#e5e5e5] active:bg-[#cccccc] transition-colors disabled:opacity-40 disabled:cursor-not-allowed flex items-center justify-center gap-2 mt-2"
+              className="w-full btn-primary-accent font-medium text-sm py-3 rounded-xl hover:bg-[#e5e5e5] active:bg-[#cccccc] transition-colors disabled:opacity-40 disabled:cursor-not-allowed flex items-center justify-center gap-2 mt-2"
             >
               {resetPasswordMutation.isPending ? (
                 <>

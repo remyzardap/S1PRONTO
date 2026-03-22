@@ -102,7 +102,7 @@ export const BLOCKS: BlockConfig[] = [
     label: 'Terminal',
     icon: Terminal,
     variant: 'terminal',
-    accentColor: 'var(--os-teal)',
+    accentColor: 'var(--os-accent)',
     gridDesktop: '1 / -1',
     gridRow: 4,
     route: '/terminal',

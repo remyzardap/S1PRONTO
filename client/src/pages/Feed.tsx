@@ -64,7 +64,7 @@ const TABS = [
 ];
 
 const TAG_COLORS: Record<string, string> = {
-  Energy:  '#2dd4bf',
+  Energy:  '#818CF8',
   AI:      '#a78bfa',
   Finance: '#f59e0b',
   Product: '#f97316',

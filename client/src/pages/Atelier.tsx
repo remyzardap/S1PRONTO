@@ -505,30 +505,30 @@ export default function Atelier() {
           {/* Upload */}
           <div
             className="rounded-2xl p-5 flex flex-col gap-3 cursor-pointer transition-all duration-200"
-            style={{ background: uploadedFile ? "rgba(45,212,191,0.06)" : "rgba(255,255,255,0.03)", border: uploadedFile ? "1px solid rgba(45,212,191,0.2)" : "1px solid rgba(255,255,255,0.08)" }}
+            style={{ background: uploadedFile ? "rgba(99,102,241,0.06)" : "rgba(255,255,255,0.03)", border: uploadedFile ? "1px solid rgba(99,102,241,0.2)" : "1px solid rgba(255,255,255,0.08)" }}
             onClick={() => fileInputRef.current?.click()}
             onDragOver={(e) => e.preventDefault()}
             onDrop={(e) => { e.preventDefault(); const f = e.dataTransfer.files[0]; if (f) handleFileUpload(f); }}
           >
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-xl flex items-center justify-center" style={{ background: uploadedFile ? "rgba(45,212,191,0.1)" : "rgba(255,255,255,0.06)", border: uploadedFile ? "1px solid rgba(45,212,191,0.2)" : "1px solid rgba(242,242,242,0.10)" }}>
-                {uploadParsing ? <motion.div animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 1 }}><RefreshCw className="w-4 h-4" style={{ color: "#2dd4bf" }} /></motion.div>
-                  : uploadedFile ? <Check className="w-4 h-4" style={{ color: "#2dd4bf" }} />
+              <div className="w-8 h-8 rounded-xl flex items-center justify-center" style={{ background: uploadedFile ? "rgba(99,102,241,0.1)" : "rgba(255,255,255,0.06)", border: uploadedFile ? "1px solid rgba(99,102,241,0.2)" : "1px solid rgba(242,242,242,0.10)" }}>
+                {uploadParsing ? <motion.div animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 1 }}><RefreshCw className="w-4 h-4" style={{ color: "#818CF8" }} /></motion.div>
+                  : uploadedFile ? <Check className="w-4 h-4" style={{ color: "#818CF8" }} />
                   : <Upload className="w-4 h-4" style={{ color: "#f2f2f2" }} />}
               </div>
-              <span className="text-sm font-semibold" style={{ color: uploadedFile ? "#2dd4bf" : "#f2f2f2" }}>
+              <span className="text-sm font-semibold" style={{ color: uploadedFile ? "#818CF8" : "#f2f2f2" }}>
                 {uploadedFile ? uploadedFile.name : "Upload a file"}
               </span>
             </div>
             {uploadedFile ? (
               <>
-                <p className="text-[12px] font-mono line-clamp-2" style={{ color: "rgba(45,212,191,0.7)" }}>{uploadedFile.preview}</p>
+                <p className="text-[12px] font-mono line-clamp-2" style={{ color: "rgba(99,102,241,0.7)" }}>{uploadedFile.preview}</p>
                 <div className="flex gap-2 mt-1">
                   {(["rewrite", "reformat"] as UploadMode[]).map((m) => (
                     <button key={m} onClick={(e) => { e.stopPropagation(); setUploadMode(m); }}
                       className="px-3 py-1 rounded-full text-[11px] font-medium transition-all"
                       style={uploadMode === m
-                        ? { background: "rgba(45,212,191,0.15)", border: "1px solid rgba(45,212,191,0.3)", color: "#2dd4bf" }
+                        ? { background: "rgba(99,102,241,0.15)", border: "1px solid rgba(99,102,241,0.3)", color: "#818CF8" }
                         : { background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", color: "rgba(242,242,242,0.4)" }}
                     >
                       {m === "rewrite" ? "Rewrite" : "Reformat only"}

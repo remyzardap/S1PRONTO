@@ -285,7 +285,7 @@ function AddMemoryModal({
             <button
               onClick={handleSubmit}
               disabled={createMutation.isPending}
-              className="btn-primary-teal px-4 py-2 text-xs disabled:opacity-50"
+              className="btn-primary-accent px-4 py-2 text-xs disabled:opacity-50"
             >
               {createMutation.isPending ? "Saving…" : "Save Memory"}
             </button>
@@ -500,7 +500,7 @@ export default function Memories() {
           </div>
           <button
             onClick={() => setShowModal(true)}
-            className="btn-primary-teal px-3.5 py-2 text-xs inline-flex items-center gap-1.5"
+            className="btn-primary-accent px-3.5 py-2 text-xs inline-flex items-center gap-1.5"
           >
             <PlusIcon />
             Add Memory

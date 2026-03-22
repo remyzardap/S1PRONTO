@@ -66,7 +66,7 @@ const STAT_CONFIG: Record<string, { icon: React.ElementType; color: string; glow
   Skills:      { icon: Brain,     color: "#f2f2f2",  glow: "rgba(242,242,242,0.08)", border: "rgba(242,242,242,0.12)", path: "/skills"      },
   Memories:    { icon: BookOpen,  color: "#a78bfa",  glow: "rgba(167,139,250,0.10)", border: "rgba(167,139,250,0.18)", path: "/memories"    },
   Files:       { icon: HardDrive, color: "#f59e0b",  glow: "rgba(245,158,11,0.10)",  border: "rgba(245,158,11,0.18)",  path: "/files"       },
-  Connections: { icon: Plug,      color: "#2dd4bf",  glow: "rgba(45,212,191,0.10)",  border: "rgba(45,212,191,0.18)",  path: "/connections" },
+  Connections: { icon: Plug,      color: "#818CF8",  glow: "rgba(99,102,241,0.10)",  border: "rgba(99,102,241,0.18)",  path: "/connections" },
 };
 
 function StatCard({ label, value, loading }: { label: string; value?: number; loading?: boolean }) {
@@ -338,7 +338,7 @@ export default function Dashboard() {
         <QuickAction icon={MessageSquare} label="New Chat"        path="/chat"     color="#f2f2f2" />
         <QuickAction icon={FileText}      label="Generate Doc"    path="/generate" color="#f59e0b" />
         <QuickAction icon={BookOpen}      label="Add Memory"      path="/memories" color="#a78bfa" />
-        <QuickAction icon={Zap}           label="Browse Skills"   path="/discover" color="#2dd4bf" />
+        <QuickAction icon={Zap}           label="Browse Skills"   path="/discover" color="#818CF8" />
       </motion.div>
 
       {/* ── Stat cards ── */}

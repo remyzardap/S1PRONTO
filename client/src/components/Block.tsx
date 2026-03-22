@@ -43,12 +43,12 @@ const TYPE_ICON: Record<BlockType, React.ElementType> = {
 
 const TYPE_COLOR: Record<BlockType, string> = {
   chat: "#f2f2f2", atelier: "#a78bfa", memory: "#f59e0b",
-  task: "#2dd4bf", media: "#f97316", transcript: "#f43f5e",
+  task: "#818CF8", media: "#f97316", transcript: "#f43f5e",
   widget: "#0069ff", note: "#84cc16",
 };
 
 const AGENT_COLORS: Record<string, string> = {
-  claude: "#f97316", kimi: "#f59e0b", sonar: "#2dd4bf",
+  claude: "#f97316", kimi: "#f59e0b", sonar: "#818CF8",
   litellm: "#8b5cf6", s1: "#f2f2f2",
 };
 
@@ -107,8 +107,8 @@ function TaskContent({ content }: { content: Record<string, unknown> }) {
   return (
     <div className="flex items-start gap-3">
       <div className="w-5 h-5 rounded-md mt-0.5 shrink-0 flex items-center justify-center"
-        style={{ background: done ? "rgba(45,212,191,0.12)" : "transparent", border: `1px solid ${done ? "rgba(45,212,191,0.3)" : "rgba(255,255,255,0.12)"}` }}>
-        {done && <span style={{ color: "#2dd4bf", fontSize: 11 }}>✓</span>}
+        style={{ background: done ? "rgba(99,102,241,0.12)" : "transparent", border: `1px solid ${done ? "rgba(99,102,241,0.3)" : "rgba(255,255,255,0.12)"}` }}>
+        {done && <span style={{ color: "#818CF8", fontSize: 11 }}>✓</span>}
       </div>
       <div>
         <p className="text-[14px]" style={{ color: done ? "rgba(242,242,242,0.4)" : "rgba(242,242,242,0.8)", textDecoration: done ? "line-through" : "none" }}>

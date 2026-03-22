@@ -114,7 +114,7 @@ export default function Block({
         gridColumn: config.gridDesktop,
         cursor: 'pointer',
         background: isTerminal ? '#050508' : undefined,
-        borderColor: isTerminal ? 'rgba(20, 184, 166, 0.12)' : undefined,
+        borderColor: isTerminal ? 'rgba(99, 102, 241, 0.12)' : undefined,
         ...(isBlurred ? { filter: 'blur(12px)', opacity: 0.4 } : {}),
       }}
       onClick={handleTap}

@@ -22,7 +22,7 @@ const FILTERS: { id: BlockType | "all"; label: string; icon: React.ElementType; 
   { id: "chat",       label: "Chat",        icon: MessageSquare,   color: "#f2f2f2"  },
   { id: "atelier",    label: "Atelier",     icon: FileText,        color: "#a78bfa"  },
   { id: "memory",     label: "Memories",    icon: BookOpen,        color: "#f59e0b"  },
-  { id: "task",       label: "Tasks",       icon: CheckSquare,     color: "#2dd4bf"  },
+  { id: "task",       label: "Tasks",       icon: CheckSquare,     color: "#818CF8"  },
   { id: "transcript", label: "Transcripts", icon: Mic,             color: "#f43f5e"  },
   { id: "note",       label: "Notes",       icon: StickyNote,      color: "#84cc16"  },
 ];
