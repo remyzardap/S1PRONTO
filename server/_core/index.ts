@@ -14,11 +14,19 @@ import { kemmaStreamRoute } from '../routes/kemmaStream';
 import { startTrialExpiryJob } from '../core/trialManager';
 import { setupVite, serveStatic } from './vite';
 import { loadSecretsFromSecretManager } from './secretManager';
+import { cspMiddleware, errorMonitoringMiddleware, registerGlobalErrorHandlers } from '../middleware/security';
+import { loginRateLimiter, registerRateLimiter, passwordResetRateLimiter, generalApiRateLimiter } from './rateLimiter';
 
 // Load secrets from Secret Manager before starting
 await loadSecretsFromSecretManager();
 
+// Register global unhandled error handlers immediately
+registerGlobalErrorHandlers();
+
 const app = express();
+
+// Apply CSP and security headers to all routes
+app.use(cspMiddleware);
 
 app.use(cors({
   origin: process.env.NODE_ENV === "production"
@@ -56,13 +64,20 @@ app.use('/api/intelligence', intelligenceRouter);
 // Kemma agent streaming route
 app.post('/api/kemma/stream', kemmaStreamRoute);
 
-// tRPC API routes
+// tRPC API routes — apply rate limiters to auth endpoints
+app.use('/api/trpc/auth.login', loginRateLimiter);
+app.use('/api/trpc/auth.login2fa', loginRateLimiter);
+app.use('/api/trpc/auth.founderLogin', loginRateLimiter);
+app.use('/api/trpc/auth.register', registerRateLimiter);
+app.use('/api/trpc/auth.resetPassword', passwordResetRateLimiter);
+app.use('/api/trpc/auth.forgotPassword', passwordResetRateLimiter);
+app.use('/api/trpc', generalApiRateLimiter);
 app.use('/api/trpc', createExpressMiddleware({
   router: appRouter,
   createContext,
 }));
 
-const PORT = parseInt(process.env.PORT || '5000', 10);
+const PORT = parseInt(process.env.PORT || '3000', 10);
 const server = createServer(app);
 
 (async () => {
@@ -71,6 +86,9 @@ const server = createServer(app);
   } else {
     serveStatic(app);
   }
+
+  // Error monitoring middleware — must be registered after all other routes
+  app.use(errorMonitoringMiddleware);
 
   setupIntelligenceWebSocket(server);
 
@@ -81,4 +99,3 @@ const server = createServer(app);
     console.log(`Sutaeru server running on port ${PORT}`);
   });
 })();
-

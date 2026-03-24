@@ -22,12 +22,8 @@ async function runMigrations() {
   const db = drizzle(pool);
 
   console.log("Running migrations...");
-  try {
-    await migrate(db, { migrationsFolder: path.join(process.cwd(), "drizzle", "migrations") });
-    console.log("✅ Migrations complete.");
-  } catch (err) {
-    console.warn("Migration error (may be safe to ignore if tables exist):", (err as Error).message);
-  }
+  await migrate(db, { migrationsFolder: path.join(process.cwd(), "drizzle", "migrations") });
+  console.log("✅ Migrations complete.");
 
   await pool.end();
 }
