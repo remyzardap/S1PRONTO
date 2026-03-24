@@ -25,9 +25,14 @@ function getOAuth2Client() {
 }
 
 function getDefaultRedirectUri(): string {
+  if (process.env.GOOGLE_REDIRECT_URI) return process.env.GOOGLE_REDIRECT_URI;
+  if (process.env.APP_URL) return `${process.env.APP_URL}/api/google/callback`;
   const domain = process.env.REPLIT_DEV_DOMAIN || process.env.REPLIT_DOMAINS?.split(",")[0];
   if (domain) return `https://${domain}/api/google/callback`;
-  return "http://localhost:5000/api/google/callback";
+  if (process.env.NODE_ENV === "production") {
+    console.warn("[WARN] No GOOGLE_REDIRECT_URI or APP_URL set in production. Google OAuth may fail.");
+  }
+  return "http://localhost:3000/api/google/callback";
 }
 
 import crypto from "crypto";
